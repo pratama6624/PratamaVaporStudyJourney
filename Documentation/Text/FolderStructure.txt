@@ -1,0 +1,22 @@
+VAPOR - FOLDER STRUCTTURE
+
+1. Public (Folder)
+   Tempat dimana kita akan menyimpan file static di project kita seperti gambar, file kode seperti (Html, Css, Html, dan yang lainya), dan file lainya.
+   
+2. Source/App
+   * Controllers (Folder)
+     X
+     
+   * Migrations (Folder)
+     X
+     
+   * Models (Folder)
+     X
+     
+   * Routes (Folder)
+     X
+     
+   * DTOs (Folder)
+     X
+
+   *
