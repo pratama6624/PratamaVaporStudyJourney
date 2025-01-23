@@ -5,18 +5,29 @@ VAPOR - FOLDER STRUCTTURE
    
 2. Source/App
    * Controllers (Folder)
-     X
+     - Mengelola permintaan request dan response.
+     - Memisahkan logika bisnis dengan routing.
+     - Mengelompokkan fungsi berdasarkan entity atau modul.
+     - Integrasi dengan model dan database.
      
    * Migrations (Folder)
-     X
+     - Menjadi tempat miigrasi database jika menggunakan Fluent
      
    * Models (Folder)
-     X
+     - Representasi data dari database ke Vapor.
+     - Integrasi dengan database.
+     - Validasi data.
+     - Relasi antar entitas.
+     - Serialization (Transformasi data / perubahan bentuk dan format untuk mempermudah pertukaran data di API)
      
    * Routes (Folder)
-     X
+     - Mengatur endpoint API.
+     - Menghubungkan rute ke controller.
+     - Mengelompokan rute.
+     - Menerapkan Middleware.
      
    * DTOs (Folder)
-     X
-
-   *
+     - Jika model adalah representasi data dari sumber data / database yang kotor maka DTO data yang lebih bersih untuk dipertukarkan.
+     - Menjembatani data antar layer.
+     - Keamanan data sensitif / Abstraksi data.
+     - Format data yang konsisten dan lebih bersih dari model.
