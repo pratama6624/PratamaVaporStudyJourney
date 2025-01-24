@@ -40,5 +40,25 @@ func routes(_ app: Application) throws {
         ])
     }
     
+    // Constanst -> GET /users/profile
+    app.on(.GET, "users", "profile") { req async -> String in
+        "User profile"
+    }
+    
+    // Parameters -> GET /users/:id <- String UUID
+    app.on(.GET, "users", ":id") { req async -> String in
+        "User with id: \(req.parameters.get("id")!)"
+    }
+    
+    // Anything -> GET /files/vaporfile
+    app.on(.GET, "files", "*") { req async -> String in
+        "Match any files"
+    }
+    
+    // Catchall -> GET /api/123/profile/settings/preferences
+    app.on(.GET, "api", ":userID", "profile", "*", "**") { req async -> String in
+        "User id: \(req.parameters.get("userID") ?? "unknown")"
+    }
+    
     try app.register(collection: TodoController())
 }
