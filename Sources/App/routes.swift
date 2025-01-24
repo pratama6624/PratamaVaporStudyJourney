@@ -60,5 +60,21 @@ func routes(_ app: Application) throws {
         "User id: \(req.parameters.get("userID") ?? "unknown")"
     }
     
+    // Advanced Parameters -> GET /number/12
+    app.on(.GET, "number", ":x") { req async throws -> String in
+        guard let int = req.parameters.get("x", as: Int.self) else {
+            throw Abort(.badRequest)
+        }
+        
+        return "\(int) is a great number"
+    }
+    
+    // responds to GET /hello/foo
+    // responds to GET /hello/foo/bar
+    app.on(.GET, "hello", "**") { req async -> String in
+        let name = req.parameters.getCatchall().joined(separator: " ")
+        return "Hello, \(name)"
+    }
+    
     try app.register(collection: TodoController())
 }
