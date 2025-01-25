@@ -138,4 +138,8 @@ func routes(_ app: Application) throws {
     }
     
     try app.register(collection: TodoController())
+    
+    // Viewing all route
+    // Terminal -> swift run App routes
+    print(app.routes.all)
 }
