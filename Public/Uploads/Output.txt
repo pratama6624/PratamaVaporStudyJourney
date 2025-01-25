@@ -1,0 +1,11 @@
+----------------------------506720939216790398624084
+Content-Disposition: form-data; name=""; filename="test.txt"
+Content-Type: text/plain
+
+This is a large file.
+It contains multiple lines of text.
+Here is another line.
+This file is used for testing file upload functionality.
+Thank you for using Vapor!
+
+----------------------------506720939216790398624084--

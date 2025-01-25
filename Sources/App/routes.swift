@@ -76,5 +76,42 @@ func routes(_ app: Application) throws {
         return "Hello, \(name)"
     }
     
+    // Body Streaming
+    app.on(.POST, "upload") { req -> HTTPStatus in
+        let publicPath = DirectoryConfiguration.detect().publicDirectory
+        let filePath = publicPath + "Uploads/Output.txt"
+        
+        // Buat folder jika belum ada
+        let fileManager = FileManager.default
+        let uploadsFolder = publicPath + "Uploads/"
+        if !fileManager.fileExists(atPath: uploadsFolder) {
+            let created = fileManager.createFile(atPath: filePath, contents: nil)
+            guard created else {
+                throw Abort(.internalServerError, reason: "Failed to create file")
+            }
+        }
+        
+        // Buka file untuk penulisan
+        guard let fileHandle = FileHandle(forWritingAtPath: filePath) else {
+            throw Abort(.internalServerError, reason: "Failed to open file for writing")
+        }
+        
+        // Streaming body ke file
+        req.body.drain { part in
+            switch part {
+            case .buffer(let buffer):
+                let data = Data(buffer: buffer)
+                fileHandle.write(data)
+            case .end:
+                try? fileHandle.close()
+            default:
+                break
+            }
+            return req.eventLoop.makeSucceededFuture(())
+        }
+        
+        return .ok
+    }
+    
     try app.register(collection: TodoController())
 }
