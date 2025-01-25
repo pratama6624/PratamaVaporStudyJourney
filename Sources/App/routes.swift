@@ -76,7 +76,7 @@ func routes(_ app: Application) throws {
         return "Hello, \(name)"
     }
     
-    // Body Streaming
+    // Body Streaming -> POST /upload
     app.on(.POST, "upload") { req -> HTTPStatus in
         let publicPath = DirectoryConfiguration.detect().publicDirectory
         let filePath = publicPath + "Uploads/Output.txt"
@@ -111,6 +111,20 @@ func routes(_ app: Application) throws {
         }
         
         return .ok
+    }
+    
+    // Body Streaming -> GET /download
+    app.on(.GET, "download") { req -> Response in
+        let publicPath = DirectoryConfiguration.detect().publicDirectory
+        let filePath = publicPath + "Uploads/Output.txt"
+        
+        let fileManager = FileManager.default
+        guard fileManager.fileExists(atPath: filePath) else {
+            throw Abort(.notFound, reason: "File not found")
+        }
+        
+        let fileURL = URL(fileURLWithPath: filePath)
+        return req.fileio.streamFile(at: fileURL.path)
     }
     
     try app.register(collection: TodoController())
