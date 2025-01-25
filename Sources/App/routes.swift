@@ -115,6 +115,8 @@ func routes(_ app: Application) throws {
         
         return .ok
     }
+    .description("Upload file")
+    .userInfo["category"] = "IO Management"
     
     // Body Streaming -> GET /download
     app.on(.GET, "download") { req -> Response in
@@ -129,6 +131,8 @@ func routes(_ app: Application) throws {
         let fileURL = URL(fileURLWithPath: filePath)
         return req.fileio.streamFile(at: fileURL.path)
     }
+    .description("Download file")
+    .userInfo["category"] = "IO Management"
     
     // Vapor = case sensitive URL (default)
     // -> GET /HelloVapor = valid route
