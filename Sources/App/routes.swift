@@ -2,6 +2,9 @@ import Fluent
 import Vapor
 
 func routes(_ app: Application) throws {
+    // Merubah ke Case Insensitive
+    app.routes.caseInsensitive = true
+    
     // -> GET /
     app.get { req async in
         "It works!"
