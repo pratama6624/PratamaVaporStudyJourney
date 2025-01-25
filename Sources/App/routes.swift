@@ -127,5 +127,12 @@ func routes(_ app: Application) throws {
         return req.fileio.streamFile(at: fileURL.path)
     }
     
+    // Vapor = case sensitive URL (default)
+    // -> GET /HelloVapor = valid route
+    // -> GET /hellovapor = 404 Not Found
+    app.on(.GET, "HelloVapor") { req async -> String in
+        "Vapor Valid Route"
+    }
+    
     try app.register(collection: TodoController())
 }
