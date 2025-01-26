@@ -187,6 +187,21 @@ func routes(_ app: Application) throws {
         "Details of artist with id \(req.parameters.get("id")!)"
     }
     
+    // Middleware -> Register
+    let rateLimitMiddleware = RateLimitMiddleware(maxRequest: 5, resetInterval: 60)
+    
+    // Without Middleware
+    app.get("fast-thing") { req async -> String in
+        "This is a fast route!"
+    }
+    
+    // With Middleware
+    app.group(rateLimitMiddleware) { group in
+        group.get("rate-limited") { req async -> String in
+            "This route is rate limited!"
+        }
+    }
+    
     // Route Controller Register
     try app.register(collection: TodoController())
     
