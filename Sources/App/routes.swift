@@ -141,6 +141,17 @@ func routes(_ app: Application) throws {
         "Vapor Valid Route"
     }
     
+    // Route Groups -> songs
+    app.group("songs") { songs in
+        songs.get { req async -> String in
+            "List of all songs"
+        }
+        
+        songs.post { req async -> String in
+            "Add a new song"
+        }
+    }
+    
     try app.register(collection: TodoController())
     
     // Viewing all route
