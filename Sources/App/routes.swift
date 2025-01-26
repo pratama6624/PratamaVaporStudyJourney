@@ -172,6 +172,21 @@ func routes(_ app: Application) throws {
         }
     }
     
+    // Route Groups - Path Prefix
+    let artists = app.grouped("artists")
+    // Path Prefix -> GET /artists
+    artists.get { req async -> String in
+        "List of all artists"
+    }
+    // Path Prefix -> POST /artists
+    artists.post { req async -> String in
+        "Add a new artist"
+    }
+    // Path Prefix -> GET /artists/:id
+    artists.get(":id") { req async -> String in
+        "Details of artist with id \(req.parameters.get("id")!)"
+    }
+    
     try app.register(collection: TodoController())
     
     // Viewing all route
