@@ -202,6 +202,16 @@ func routes(_ app: Application) throws {
         }
     }
     
+    // Redirect -> GET /old-route
+    app.get("old-route") { req async in
+        req.redirect(to: "/new-route")
+    }
+    
+    // -> GET /new-route
+    app.get("new-route") { req async -> String in
+        "This is new route"
+    }
+    
     // Route Controller Register
     try app.register(collection: TodoController())
     
