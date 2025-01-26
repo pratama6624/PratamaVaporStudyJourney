@@ -141,14 +141,34 @@ func routes(_ app: Application) throws {
         "Vapor Valid Route"
     }
     
-    // Route Groups -> songs
+    // Route Groups -> /songs
     app.group("songs") { songs in
+        // -> GET /songs
         songs.get { req async -> String in
             "List of all songs"
         }
         
+        // -> POST /songs
         songs.post { req async -> String in
             "Add a new song"
+        }
+        
+        // Nested Group -> /songs/:id
+        songs.group(":id") { id in
+            // -> GET /songs/:id
+            id.get { req async -> String in
+                "Details of song with id \(req.parameters.get("id")!)"
+            }
+            
+            // -> PATCH /songs/:id
+            id.patch { req async -> String in
+                "Update song with id \(req.parameters.get("id")!)"
+            }
+            
+            // -> PUT /songs/:id
+            id.put { req async -> String in
+                "Replace song with id \(req.parameters.get("id")!)"
+            }
         }
     }
     
