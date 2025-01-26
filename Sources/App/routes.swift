@@ -187,7 +187,11 @@ func routes(_ app: Application) throws {
         "Details of artist with id \(req.parameters.get("id")!)"
     }
     
+    // Route Controller Register
     try app.register(collection: TodoController())
+    
+    // Route Collection Register
+    try app.register(collection: PlaylistRoutes())
     
     // Viewing all route
     // Terminal -> swift run App routes
