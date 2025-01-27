@@ -23,4 +23,12 @@ final class Song: Model, @unchecked Sendable {
         self.id = id
         self.title = title
     }
+    
+    // Dari Model ke DTO
+    func toSongDTO() -> SongDTO {
+        .init(
+            id: self.id,
+            title: self.$title.value
+        )
+    }
 }
