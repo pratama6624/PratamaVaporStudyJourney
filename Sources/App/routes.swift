@@ -141,37 +141,6 @@ func routes(_ app: Application) throws {
         "Vapor Valid Route"
     }
     
-    // Route Groups -> /songs
-    app.group("songs") { songs in
-        // -> GET /songs
-        songs.get { req async -> String in
-            "List of all songs"
-        }
-        
-        // -> POST /songs
-        songs.post { req async -> String in
-            "Add a new song"
-        }
-        
-        // Nested Group -> /songs/:id
-        songs.group(":id") { id in
-            // -> GET /songs/:id
-            id.get { req async -> String in
-                "Details of song with id \(req.parameters.get("id")!)"
-            }
-            
-            // -> PATCH /songs/:id
-            id.patch { req async -> String in
-                "Update song with id \(req.parameters.get("id")!)"
-            }
-            
-            // -> PUT /songs/:id
-            id.put { req async -> String in
-                "Replace song with id \(req.parameters.get("id")!)"
-            }
-        }
-    }
-    
     // Route Groups - Path Prefix
     let artists = app.grouped("artists")
     // Path Prefix -> GET /artists
@@ -217,6 +186,15 @@ func routes(_ app: Application) throws {
     
     // Route Collection Register
     try app.register(collection: PlaylistRoutes())
+    
+    // Route Controller Register -> SongController
+    try app.register(collection: SongController())
+    
+    // Route Controller Sample Register
+    try app.register(collection: SampleController())
+    
+    // Route Controller User Register (How Content Works)
+    try app.register(collection: UserController())
     
     // Viewing all route
     // Terminal -> swift run App routes
