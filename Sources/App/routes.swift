@@ -181,6 +181,14 @@ func routes(_ app: Application) throws {
         "This is new route"
     }
     
+    // How Content Works -> Transform from JSON to Model
+    app.post("greeting") { req async throws -> HTTPResponseStatus in
+        let greeting = try req.content.decode(Greeting.self)
+        
+        print(greeting.hello)
+        return .ok
+    }
+    
     // Route Controller Register
     try app.register(collection: TodoController())
     
