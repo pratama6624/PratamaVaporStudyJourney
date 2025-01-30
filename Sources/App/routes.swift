@@ -79,59 +79,6 @@ func routes(_ app: Application) throws {
         return "Hello, \(name)"
     }
     
-    // Body Streaming -> POST /upload
-    app.on(.POST, "upload") { req -> HTTPStatus in
-        let publicPath = DirectoryConfiguration.detect().publicDirectory
-        let filePath = publicPath + "Uploads/Output.txt"
-        
-        // Buat folder jika belum ada
-        let fileManager = FileManager.default
-        let uploadsFolder = publicPath + "Uploads/"
-        if !fileManager.fileExists(atPath: uploadsFolder) {
-            let created = fileManager.createFile(atPath: filePath, contents: nil)
-            guard created else {
-                throw Abort(.internalServerError, reason: "Failed to create file")
-            }
-        }
-        
-        // Buka file untuk penulisan
-        guard let fileHandle = FileHandle(forWritingAtPath: filePath) else {
-            throw Abort(.internalServerError, reason: "Failed to open file for writing")
-        }
-        
-        // Streaming body ke file
-        req.body.drain { part in
-            switch part {
-            case .buffer(let buffer):
-                let data = Data(buffer: buffer)
-                fileHandle.write(data)
-            case .end:
-                try? fileHandle.close()
-            default:
-                break
-            }
-            return req.eventLoop.makeSucceededFuture(())
-        }
-        
-        return .ok
-    }
-    .withMetadata("Upload file", "IO Management")
-    
-    // Body Streaming -> GET /download
-    app.on(.GET, "download") { req -> Response in
-        let publicPath = DirectoryConfiguration.detect().publicDirectory
-        let filePath = publicPath + "Uploads/Output.txt"
-        
-        let fileManager = FileManager.default
-        guard fileManager.fileExists(atPath: filePath) else {
-            throw Abort(.notFound, reason: "File not found")
-        }
-        
-        let fileURL = URL(fileURLWithPath: filePath)
-        return req.fileio.streamFile(at: fileURL.path)
-    }
-    .withMetadata("Download file", "IO Management")
-    
     // Vapor = case sensitive URL (default)
     // -> GET /HelloVapor = valid route
     // -> GET /hellovapor = 404 Not Found
@@ -193,6 +140,9 @@ func routes(_ app: Application) throws {
     
     // Route Controller User Register (How Content Works)
     try app.register(collection: UserController())
+    
+    // Route Controller IO Register (Body Streaming)
+    try app.register(collection: IOController())
     
     // Viewing all route
     // Terminal -> swift run App routes
