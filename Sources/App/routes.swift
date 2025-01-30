@@ -130,7 +130,7 @@ func routes(_ app: Application) throws {
     try app.register(collection: TodoController())
     
     // Route Collection Register
-    try app.register(collection: PlaylistRoutes())
+    try app.register(collection: PlaylistController())
     
     // Route Controller Register -> SongController
     try app.register(collection: SongController())
