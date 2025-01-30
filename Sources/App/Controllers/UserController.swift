@@ -9,18 +9,32 @@ import Vapor
 
 struct UserController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
+        // This is how Content works
+        // Encode -> Object to JSON (Auto)
+        // Decode -> JSON to Object (Manual)
         let users = routes.grouped("users", "content")
         
+        // Transform from Object to JSON (encode)
         users.get(use: self.index)
             .withMetadata("Content encode", "User Controller")
         
+        // Transform from JSON to Object (decode)
+        // Transform from Object to JSON (encode)
         users.post(use: self.create)
-            .withMetadata("Content decode", "User Controller")
+            .withMetadata("Content decode + encode", "User Controller")
         
+        // Transform from Object to JSON (encode)
         users.group(":id") { user in
             user.get(use: self.show)
                 .withMetadata("Content encode with id", "User Controller")
         }
+        
+        // Transform from JSON to Object (decode)
+        routes.post("greeting", use: decodeObjectToJSON).withMetadata("Content decode", "User Controller")
+        
+        // How Content Works With Anonymous Value
+        // Jika kita mengirim data JSON kosong {} maka string name di Model Hello akan kosong || nil
+        routes.post("hellovaporcontent", use: decodeAnonymousValue).withMetadata("Decode Anonymous value", "User Controller")
     }
     
     // -> GET Request /users/content (Get all users)
@@ -35,7 +49,9 @@ struct UserController: RouteCollection {
     // -> POST Request /users/content (Add new user)
     @Sendable
     func create(req: Request) async throws -> User {
+        // Decode manual
         let user = try req.content.decode(User.self)
+        // Encode auto
         return user
     }
     
@@ -48,5 +64,21 @@ struct UserController: RouteCollection {
         }
         
         return User(id: userID, name: "Pratama One", age: 25)
+    }
+    
+    // -> POST Request /greeting
+    @Sendable
+    func decodeObjectToJSON(req: Request) async throws -> HTTPResponseStatus {
+        let greeting = try req.content.decode(Greeting.self)
+        
+        print(greeting.hello)
+        return .ok
+    }
+    
+    // -> POST Request /hellovaporcontent
+    @Sendable
+    func decodeAnonymousValue(req: Request) async throws -> String {
+        let hello = try req.content.decode(Hello.self)
+        return "Hello \(hello.name ?? "Anonymous")"
     }
 }

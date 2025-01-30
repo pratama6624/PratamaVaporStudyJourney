@@ -179,21 +179,6 @@ func routes(_ app: Application) throws {
         "This is new route"
     }
     
-    // How Content Works -> Transform from JSON to Model
-    app.post("greeting") { req async throws -> HTTPResponseStatus in
-        let greeting = try req.content.decode(Greeting.self)
-        
-        print(greeting.hello)
-        return .ok
-    }
-    
-    // How Content Works With Anonymous Value
-    // Jika kita mengirim data JSON kosong {} maka string name di Model Hello akan kosong || nil
-    app.post("hellovaporcontent") { req async throws -> String in
-        let hello = try req.content.decode(Hello.self)
-        return "Hello \(hello.name ?? "Anonymous")"
-    }
-    
     // Single Value
     // -> POST /welcome?name="Pratama"
     app.post("welcome") { req async -> String in
