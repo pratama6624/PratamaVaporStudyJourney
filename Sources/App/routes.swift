@@ -179,13 +179,6 @@ func routes(_ app: Application) throws {
         "This is new route"
     }
     
-    // Single Value
-    // -> POST /welcome?name="Pratama"
-    app.post("welcome") { req async -> String in
-        let name: String = req.query["name"] ?? "Anonymous"
-        return "Welcome \(name)"
-    }
-    
     // Route Controller Register
     try app.register(collection: TodoController())
     

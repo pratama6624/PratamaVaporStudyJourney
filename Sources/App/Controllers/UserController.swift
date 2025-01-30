@@ -34,7 +34,12 @@ struct UserController: RouteCollection {
         
         // How Content Works With Anonymous Value
         // Jika kita mengirim data JSON kosong {} maka string name di Model Hello akan kosong || nil
-        routes.post("hellovaporcontent", use: decodeAnonymousValue).withMetadata("Decode Anonymous value", "User Controller")
+        routes.post("hellovaporcontent", use: decodeAnonymousValue)
+            .withMetadata("Decode Anonymous value", "User Controller")
+        
+        // Single Value
+        routes.post("welcome", use: self.singleValue)
+            .withMetadata("Single value", "User Controller")
     }
     
     // -> GET Request /users/content (Get all users)
@@ -80,5 +85,12 @@ struct UserController: RouteCollection {
     func decodeAnonymousValue(req: Request) async throws -> String {
         let hello = try req.content.decode(Hello.self)
         return "Hello \(hello.name ?? "Anonymous")"
+    }
+    
+    // -> POST /welcome?name="Pratama"
+    @Sendable
+    func singleValue(req: Request) async throws -> String {
+        let name: String = req.query["name"] ?? "Anonymous"
+        return "Welcome \(name)"
     }
 }
