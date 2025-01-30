@@ -48,6 +48,9 @@ struct UserController: RouteCollection {
         // Multiple Value with the same name parameter
         routes.post("developer", use: self.developer)
             .withMetadata("Multipe value (same name params)", "User Controller")
+        
+        // Multiple Value with different name parameter
+        routes.post("tags", use: self.tags).withMetadata("Multipe value (different name params)", "User Controller")
     }
     
     // -> GET Request /users/content (Get all users)
@@ -126,5 +129,12 @@ struct UserController: RouteCollection {
         }
         
         return "Developer \(name) is \(age) years old"
+    }
+    
+    // -> POST /tags?tag=Swift&tag=Vapor&tag=Fluent
+    @Sendable
+    func tags(req: Request) async throws -> String {
+        let tags: [String] = req.query["tag"] ?? []
+        return "Tags: \(tags.joined(separator: ", "))"
     }
 }
