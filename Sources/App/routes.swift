@@ -189,6 +189,13 @@ func routes(_ app: Application) throws {
         return .ok
     }
     
+    // How Content Works With Anonymous Value
+    // Jika kita mengirim data JSON kosong {} maka string name di Model Hello akan kosong || nil
+    app.post("hellovaporcontent") { req async throws -> String in
+        let hello = try req.content.decode(Hello.self)
+        return "Hello \(hello.name ?? "Anonymous")"
+    }
+    
     // Route Controller Register
     try app.register(collection: TodoController())
     
