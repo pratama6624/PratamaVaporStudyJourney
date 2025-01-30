@@ -44,6 +44,10 @@ struct UserController: RouteCollection {
         // Single Value (pow)
         routes.post("pow", use: self.pow)
             .withMetadata("Single value (pow)", "User Controller")
+        
+        // Multiple Value with the same name parameter
+        routes.post("developer", use: self.developer)
+            .withMetadata("Multipe value (same name params)", "User Controller")
     }
     
     // -> GET Request /users/content (Get all users)
@@ -105,6 +109,22 @@ struct UserController: RouteCollection {
         guard let number: Int = req.query["number"] else {
             return "Please provide a number"
         }
+        
         return "pow of \(number) is \(number * number)"
+    }
+    
+    // -> POST /developer?name=pratama&age=25
+    @Sendable
+    func developer(req: Request) async throws -> String {
+        // Optional Handling
+        guard let name: String = req.query["name"] else {
+            return "Please provide a name"
+        }
+        
+        guard let age: Int = req.query["age"] else {
+            return "Please provide an age"
+        }
+        
+        return "Developer \(name) is \(age) years old"
     }
 }
