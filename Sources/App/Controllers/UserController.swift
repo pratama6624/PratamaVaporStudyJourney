@@ -12,15 +12,14 @@ struct UserController: RouteCollection {
         let users = routes.grouped("users", "content")
         
         users.get(use: self.index)
-            .description("User Controller")
-            .userInfo["category"] = "How Content Works"
+            .withMetadata("Content encode", "User Controller")
+        
         users.post(use: self.create)
-            .description("User Controller")
-            .userInfo["category"] = "How Content Works"
+            .withMetadata("Content decode", "User Controller")
+        
         users.group(":id") { user in
             user.get(use: self.show)
-                .description("User Controller")
-                .userInfo["category"] = "How Content Works"
+                .withMetadata("Content encode with id", "User Controller")
         }
     }
     

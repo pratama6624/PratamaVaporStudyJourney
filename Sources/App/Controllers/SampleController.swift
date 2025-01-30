@@ -15,24 +15,19 @@ struct SampleController: RouteCollection {
         
         // -> GET /songs
         songs.get(use: self.index)
-            .description("Sample Controller")
-            .userInfo["category"] = "Vapor Official Docs"
+            .withMetadata("Show all songs", "Sample Controller")
         // -> POST /songs
         songs.post(use: self.create)
-            .description("Sample Controller")
-            .userInfo["category"] = "Vapor Official Docs"
+            .withMetadata("Add a new song", "Sample Controller")
         
         // Nested Grouping
         songs.group(":id") { song in
             song.get(use: self.show)
-                .description("Sample Controller")
-                .userInfo["category"] = "Vapor Official Docs"
+                .withMetadata("Show song detail", "Sample Controller")
             song.put(use: self.update)
-                .description("Sample Controller")
-                .userInfo["category"] = "Vapor Official Docs"
+                .withMetadata("Update song", "Sample Controller")
             song.delete(use: self.delete)
-                .description("Sample Controller")
-                .userInfo["category"] = "Vapor Official Docs"
+                .withMetadata("Delete song", "Sample Controller")
         }
     }
     

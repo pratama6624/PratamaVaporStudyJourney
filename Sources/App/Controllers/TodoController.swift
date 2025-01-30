@@ -6,9 +6,12 @@ struct TodoController: RouteCollection {
         let todos = routes.grouped("todos")
 
         todos.get(use: self.index)
+            .withMetadata("Show all todos", "Todo Controller")
         todos.post(use: self.create)
+            .withMetadata("Add a new todo", "Todo Controller")
         todos.group(":todoID") { todo in
             todo.delete(use: self.delete)
+                .withMetadata("Delete a todo", "Todo Controller")
         }
     }
 

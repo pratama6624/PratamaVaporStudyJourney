@@ -15,27 +15,22 @@ struct SongController: RouteCollection {
         
         // -> GET /songs
         songs.get(use: self.index)
-            .description("Song Controller")
-            .userInfo["category"] = "Songs"
+            .withMetadata("Show all songs", "Song Controller")
         // -> POST /songs
         songs.post(use: self.create)
-            .description("Song Controller")
-            .userInfo["category"] = "Songs"
+            .withMetadata("Add a new song", "Song Controller")
         
         // Nested Grouping
         songs.group(":id") { song in
             // -> GET /songs/:id
             song.get(use: self.show)
-                .description("Song Controller")
-                .userInfo["category"] = "Songs"
+                .withMetadata("Show song detail", "Song Controller")
             // -> PUT /songs/:id
             song.put(use: self.update)
-                .description("Song Controller")
-                .userInfo["category"] = "Songs"
+                .withMetadata("Update song", "Song Controller")
             // -> DELETE /songs/:id
             song.delete(use: self.delete)
-                .description("Song Controller")
-                .userInfo["category"] = "Songs"
+                .withMetadata("Delete song", "Song Controller")
         }
     }
     
