@@ -40,6 +40,10 @@ struct UserController: RouteCollection {
         // Single Value
         routes.post("welcome", use: self.singleValue)
             .withMetadata("Single value", "User Controller")
+        
+        // Single Value (pow)
+        routes.post("pow", use: self.pow)
+            .withMetadata("Single value (pow)", "User Controller")
     }
     
     // -> GET Request /users/content (Get all users)
@@ -87,10 +91,20 @@ struct UserController: RouteCollection {
         return "Hello \(hello.name ?? "Anonymous")"
     }
     
-    // -> POST /welcome?name="Pratama"
+    // -> POST /welcome?name=pratama
     @Sendable
     func singleValue(req: Request) async throws -> String {
         let name: String = req.query["name"] ?? "Anonymous"
         return "Welcome \(name)"
+    }
+    
+    // -> POST /pow?number=4
+    @Sendable
+    func pow(req: Request) async throws -> String {
+        // Optional Handling
+        guard let number: Int = req.query["number"] else {
+            return "Please provide a number"
+        }
+        return "pow of \(number) is \(number * number)"
     }
 }
