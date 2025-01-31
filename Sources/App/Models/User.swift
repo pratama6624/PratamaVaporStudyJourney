@@ -24,5 +24,14 @@ struct User: Content {
         }
     }
     
-    
+    // beforeEncode (Filter sebelum data dikirim ke client / Object Model to JSON)
+    mutating func beforeEncode() throws {
+        // Cek dan jangan kembalikan data kosong ke client
+        // Optional Handling
+        guard let name = self.name?.trimmingCharacters(in: .whitespacesAndNewlines), !name.isEmpty else {
+            throw Abort(.badRequest, reason: "Name must not be empty")
+        }
+        
+        self.name = name
+    }
 }

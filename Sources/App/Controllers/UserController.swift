@@ -57,7 +57,7 @@ struct UserController: RouteCollection {
     @Sendable
     func index(req: Request) async throws -> [User] {
         return [
-            User(id: UUID(), name: "Pratama", age: 25),
+            User(id: UUID(), name: " . ", age: 25),
             User(id: UUID(), name: "One", age: 22)
         ]
     }
