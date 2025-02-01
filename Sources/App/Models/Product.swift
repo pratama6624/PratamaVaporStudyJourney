@@ -42,12 +42,19 @@ final class Product: Model, Content, @unchecked Sendable {
     }
     
     func toProductDTO() -> ProductDTO {
-        .init(
+        // Panggil secara manual
+        try? self.beforeEncode()
+        
+        // Rubah ke DTO
+        let productDTO = ProductDTO(
             id: self.id,
             name: self.$name.value,
             price: self.$price.value,
             category: self.$category.value
         )
+        
+        // Kembalikan dalam format DTO
+        return productDTO
     }
     
     // Hooks -> afterDecode
@@ -62,5 +69,11 @@ final class Product: Model, Content, @unchecked Sendable {
         if self.price < 1 {
             throw Abort(.badGateway, reason: "Price must be greater than or equal to 1")
         }
+    }
+    
+    // Hooks -> beforeEncode
+    // Menangani response untuk GET ProductController
+    func beforeEncode() throws {
+        self.category = self.category.uppercased()
     }
 }
