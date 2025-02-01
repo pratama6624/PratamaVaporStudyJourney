@@ -144,6 +144,9 @@ func routes(_ app: Application) throws {
     // Route Controller IO Register (Body Streaming)
     try app.register(collection: IOController())
     
+    // Route Controller Product Register
+    try app.register(collection: ProductController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)
