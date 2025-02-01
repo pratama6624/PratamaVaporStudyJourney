@@ -9,7 +9,7 @@ import Vapor
 import Fluent
 
 // Hooks afterDecode & beforeEncode -> PostgreSQL
-final class Product: Model, @unchecked Sendable {
+final class Product: Model, Content, @unchecked Sendable {
     static let schema: String = "products"
     
     @ID(key: .id)
@@ -48,5 +48,19 @@ final class Product: Model, @unchecked Sendable {
             price: self.$price.value,
             category: self.$category.value
         )
+    }
+    
+    // Hooks -> afterDecode
+    // Menangani POST request dari ProductController
+    func afterDecode() throws {
+        self.name = self.name.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if self.name.isEmpty {
+            throw Abort(.badGateway, reason: "Product name cannot be empty")
+        }
+        
+        if self.price < 1 {
+            throw Abort(.badGateway, reason: "Price must be greater than or equal to 1")
+        }
     }
 }
