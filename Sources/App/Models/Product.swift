@@ -30,15 +30,19 @@ final class Product: Model, Content, @unchecked Sendable {
     @Field(key: "api_key")
     var api_key: String
     
+    @Timestamp(key: "created_at", on: .create)
+    var created_at: Date?
+    
     init() { }
     
-    init(id: UUID? = nil, name: String, price: Double, category: String, cost_price: Double, api_key: String) {
+    init(id: UUID? = nil, name: String, price: Double, category: String, cost_price: Double, api_key: String, created_at: Date = Date()) {
         self.id = id
         self.name = name
         self.price = price
         self.category = category
         self.cost_price = cost_price
         self.api_key = api_key
+        self.created_at = created_at
     }
     
     func toProductDTO() -> ProductDTO {
@@ -50,7 +54,8 @@ final class Product: Model, Content, @unchecked Sendable {
             id: self.id,
             name: self.$name.value,
             price: self.$price.value,
-            category: self.$category.value
+            category: self.$category.value,
+            created_at: self.created_at
         )
         
         // Kembalikan dalam format DTO

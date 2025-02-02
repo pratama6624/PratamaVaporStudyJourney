@@ -14,6 +14,7 @@ struct ProductDTO: Content {
     var name: String?
     var price: Double?
     var category: String?
+    var created_at: Date?
     
     func toProductModel() async throws -> Product {
         let model = Product()

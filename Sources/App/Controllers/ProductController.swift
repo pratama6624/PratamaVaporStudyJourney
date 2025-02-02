@@ -30,6 +30,8 @@ struct ProductController: RouteCollection {
         // From JSON to Object Model (Decode)
         let product = try req.content.decode(Product.self)
         
+        product.created_at = Date()
+        
         // Save to database
         try await product.save(on: req.db)
         

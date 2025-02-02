@@ -23,6 +23,7 @@ public func configure(_ app: Application) async throws {
     // Product Migration
     app.migrations.add(CreateProduct())
     app.migrations.add(AddCreatedAtToProduct())
+    app.migrations.add(UpdateProductDefaultCreatedAt())
     
     // Auto migration
     try await app.autoMigrate()
