@@ -10,7 +10,10 @@ public func configure(_ app: Application) async throws {
     
     // Override Defaults -> Global
     let encoder = JSONEncoder()
+    // Default -> .iso8601
     encoder.dateEncodingStrategy = .secondsSince1970
+    // Default -> Camel Case
+    encoder.keyEncodingStrategy = .convertToSnakeCase
     ContentConfiguration.global.use(encoder: encoder, for: .json)
 
     app.databases.use(DatabaseConfigurationFactory.postgres(configuration: .init(
