@@ -20,8 +20,21 @@ struct ProductController: RouteCollection {
     
     // -> GET /products
     @Sendable
-    func index(req: Request) async throws -> [ProductDTO] {
-        try await Product.query(on: req.db).all().map { $0.toProductDTO()}
+    func index(req: Request) async throws -> Response {
+        let products = try await Product.query(on: req.db).all().map { $0.toProductDTO()}
+        
+        // One-off
+        // Hanya berlaku di request ini saja
+        let encoder = JSONEncoder()
+        // Date time format
+        encoder.dateEncodingStrategy = .iso8601
+        // Output style json
+        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+        
+        // Encode
+        let jsonData = try encoder.encode(products)
+        
+        return Response(status: .ok, body: .init(data: jsonData))
     }
     
     // -> POST /products

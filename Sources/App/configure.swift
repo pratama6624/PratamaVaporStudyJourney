@@ -14,6 +14,8 @@ public func configure(_ app: Application) async throws {
     encoder.dateEncodingStrategy = .secondsSince1970
     // Default -> Camel Case
     encoder.keyEncodingStrategy = .convertToSnakeCase
+    // Pretty Printed
+    encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
     ContentConfiguration.global.use(encoder: encoder, for: .json)
 
     app.databases.use(DatabaseConfigurationFactory.postgres(configuration: .init(
