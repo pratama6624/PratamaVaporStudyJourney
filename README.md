@@ -8,38 +8,38 @@ This repository is created to document my journey in learning **Vapor**, a Swift
 ```bash
     Routing :
     
-    - [ ] HTTP Method ( GET, POST, PUT, PATCH, DELETE, OPTION )
-    - [ ] Request Path ( / )
-    - [ ] Router Methods
-    - [ ] Route Parameters ( static )
-    - [ ] Routes
-    - [ ] Methods
-    - [ ] Path Component ( Constant, Parameter, Anything*, Catchall**)
-    - [ ] Parameters ( dynamic )
-    - [ ] Body Streaming ( upload & download )
-    - [ ] Case Insensitive Routing
-    - [ ] Viewing Routes debugging ( swift run App routes )
-    - [ ] Metadata ( description & userInfo )
-    - [ ] Route Groups ( RouteBuilder )
-    - [ ] Path Prefix ( Variable Grouping )
-    - [ ] Middleware ( Authentication & Authorization, Logging, CORS, Validation, Modification )
-    - [ ] Redirections
+    [√] HTTP Method ( GET, POST, PUT, PATCH, DELETE, OPTION )
+    [√] Request Path ( / )
+    [√] Router Methods
+    [√] Route Parameters ( static )
+    [√] Routes
+    [√] Methods
+    [√] Path Component ( Constant, Parameter, Anything*, Catchall**)
+    [√] Parameters ( dynamic )
+    [√] Body Streaming ( upload & download )
+    [√] Case Insensitive Routing
+    [√] Viewing Routes debugging ( swift run App routes )
+    [√] Metadata ( description & userInfo )
+    [√] Route Groups ( RouteBuilder )
+    [√] Path Prefix ( Variable Grouping )
+    [√] Middleware ( Authentication & Authorization, Logging, CORS, Validation, Modification )
+    [√] Redirections
 ```
 ```bash
     Controller :
     
-    - [ ] Business Login & HTTP Request Handler 
+    [√] Business Login & HTTP Request Handler 
 ```
 ```bash
     Content :
     
-    - [ ] Content Encode ( Object Model -> JSON )
-    - [ ] Content Decode ( JSON -> Object Model )
-    - [ ] Media Types ( JSON, Multipart, URL-Encoded Form, Plaintext, HTML )
-    - [ ] Single Value ( Sample -> /pow?number=4 )
-    - [ ] Multiple Value ( Sample -> /tags?tag=Swift&tag=Vapor&tag=Fluent)
-    - [ ] Hooks ( afterDecode & beforeEncode )
-    - [ ] Override Default Global ( All -> configure.swift )
-    - [ ] Override Default One-Off ( Specific -> Handler )
-    - [x] Custom Coders Content ( on gping ) -> Hello, I'm here
+    [√] Content Encode ( Object Model -> JSON )
+    [√] Content Decode ( JSON -> Object Model )
+    [√] Media Types ( JSON, Multipart, URL-Encoded Form, Plaintext, HTML )
+    [√] Single Value ( Sample -> /pow?number=4 )
+    [√] Multiple Value ( Sample -> /tags?tag=Swift&tag=Vapor&tag=Fluent)
+    [√] Hooks ( afterDecode & beforeEncode )
+    [√] Override Default Global ( All -> configure.swift )
+    [√] Override Default One-Off ( Specific -> Handler )
+    [ ] Custom Coders Content ( on gping ) -> Hello, I'm here
 ```
