@@ -26,5 +26,20 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     16. Redirections
 ```
 ```bash
-    Controller : Business Login & HTTP Request Handler 
+    Controller :
+    
+    Business Login & HTTP Request Handler 
+```
+```bash
+    Content :
+    
+    1. Content Encode ( Object Model -> JSON )
+    2. Content Decode ( JSON -> Object Model )
+    2. Media Types ( JSON, Multipart, URL-Encoded Form, Plaintext, HTML )
+    3. Single Value ( Sample -> /pow?number=4 )
+    4. Multiple Value ( Sample -> /tags?tag=Swift&tag=Vapor&tag=Fluent)
+    5. Hooks ( afterDecode & beforeEncode )
+    6. Override Default Global ( All -> configure.swift )
+    7. Override Default One-Off ( Specific -> Handler )
+    8. Custom Coders Content ( on gping ) -> Hello, I'm here
 ```
