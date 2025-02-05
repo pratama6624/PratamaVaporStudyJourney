@@ -14,6 +14,9 @@ struct IOController: RouteCollection {
         
         routes.get("download", use: self.download)
             .withMetadata("Download file", "IO Management")
+        
+        routes.post("bytebuffer", "upload", use: self.byteBufferUpload)
+            .withMetadata("Byte Buffer Upload", "IO Management")
     }
     
     // -> POST /upload
@@ -67,5 +70,36 @@ struct IOController: RouteCollection {
         
         let fileURL = URL(fileURLWithPath: filePath)
         return req.fileio.streamFile(at: fileURL.path)
+    }
+    
+    // -> POST /bytebuffer/upload
+    @Sendable
+    func byteBufferUpload(req: Request) async throws -> HTTPStatus {
+        // Upload directory
+        let uploadDirectory = DirectoryConfiguration.detect().workingDirectory + "Public/Uploads/Images/"
+        
+        // Get file image from POST request + Optional handling
+        guard let byteBuffer = req.body.data else {
+            throw Abort(.badRequest, reason: "No data in request body")
+        }
+        
+        // ByteBuffer = Biner
+        // Convert ByteBuffer -> Data
+        let imageData = Data(buffer: byteBuffer)
+        
+        // Image property
+        let fileName = "uploaded_image.png"
+        let filePath = uploadDirectory + fileName
+        
+        // Check folder
+        try FileManager.default.createDirectory(atPath: uploadDirectory, withIntermediateDirectories: true)
+        
+        // Save image
+        try imageData.write(to: URL(fileURLWithPath: filePath))
+        
+        // Debugging
+        print("Image saved successfully!")
+        
+        return .ok
     }
 }
