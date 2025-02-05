@@ -41,5 +41,6 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Hooks ( afterDecode & beforeEncode )
     [√] Override Default Global ( All -> configure.swift )
     [√] Override Default One-Off ( Specific -> Handler )
-    [ ] Custom Coders Content ( on gping ) -> Hello, I'm here
+    [√] Custom Coders Content ( ByteBuffer )
+    
 ```
