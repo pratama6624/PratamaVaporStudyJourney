@@ -79,12 +79,15 @@ struct IOController: RouteCollection {
         let uploadDirectory = DirectoryConfiguration.detect().workingDirectory + "Public/Uploads/Images/"
         
         // Get file image from POST request + Optional handling
+        // Encoding ( File gambar -> Byte buffer )
         guard let byteBuffer = req.body.data else {
             throw Abort(.badRequest, reason: "No data in request body")
         }
         
+        print("Byte Buffer: \(byteBuffer)")
         // ByteBuffer = Biner
         // Convert ByteBuffer -> Data
+        // Decoding ( Byte buffer -> File gambar )
         let imageData = Data(buffer: byteBuffer)
         
         // Image property

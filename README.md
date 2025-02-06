@@ -41,6 +41,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Hooks ( afterDecode & beforeEncode )
     [√] Override Default Global ( All -> configure.swift )
     [√] Override Default One-Off ( Specific -> Handler )
-    [√] Custom Coders Content ( ByteBuffer )
+    [√] Custom Coders Content ByteBuffer Encoding ( File Image -> ByteBuffer)
+    [ ] Custom Coders Content ByteBuffer Decoding ( ByteBuffer -> File Image )
     
 ```
