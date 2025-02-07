@@ -37,6 +37,9 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(AddCreatedAtToProduct())
     app.migrations.add(UpdateProductDefaultCreatedAt())
     
+    // UserPostgre
+    app.migrations.add(CreateUserPostgre())
+    
     // Auto migration
     try await app.autoMigrate()
     // register routes
