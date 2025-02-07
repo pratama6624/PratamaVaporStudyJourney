@@ -9,7 +9,7 @@ import Vapor
 import Fluent
 
 final class UserPostgre: Model, Content, @unchecked Sendable {
-    static let schema: String = "userpostgres"
+    static let schema: String = "userpostgre"
     
     @ID(key: .id)
     var id: UUID?
@@ -71,10 +71,10 @@ final class UserPostgre: Model, Content, @unchecked Sendable {
             id: self.id,
             username: self.$username.value,
             email: self.$email.value,
-            contact: self.contact,
-            password: self.password,
-            image: self.image,
-            role: self.role,
+            contact: self.$contact.value,
+            password: self.$password.value,
+            image: self.$image.value,
+            role: self.$role.value,
             created_at: self.created_at,
             updated_at: self.updated_at,
             deleted_at: self.delete_at

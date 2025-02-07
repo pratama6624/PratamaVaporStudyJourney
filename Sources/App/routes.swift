@@ -147,6 +147,9 @@ func routes(_ app: Application) throws {
     // Route Controller Product Register
     try app.register(collection: ProductController())
     
+    // Route Controller User Postgre Register
+    try app.register(collection: UserPostgreController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)
