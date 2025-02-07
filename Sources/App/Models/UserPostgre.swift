@@ -43,7 +43,12 @@ final class UserPostgre: Model, Content, @unchecked Sendable {
     
     init() { }
     
-    init(id: UUID? = nil, username: String, email: String, contact: String, password: String, image: String, role: String, created_at: Date = Date(), updated_at: Date = Date(), deleted_at: Date = Date()) {
+    init(id: UUID? = nil, username: String, email: String, contact: String, password: String, image: String, role: String, created_at: Date = Date(), updated_at: Date = Date(), deleted_at: Date = Date()) throws {
+        // Phone number validation
+        guard Self.isValidPhoneNumber(contact) else {
+            throw Abort(.badGateway, reason: "Invalid number format")
+        }
+        
         self.id = id
         self.username = username
         self.email = email
@@ -54,5 +59,27 @@ final class UserPostgre: Model, Content, @unchecked Sendable {
         self.created_at = created_at
         self.updated_at = updated_at
         self.delete_at = deleted_at
+    }
+    
+    static func isValidPhoneNumber(_ number: String) -> Bool {
+        let pattern = #"^(?:\+62|62|0)8[1-9][0-9]{6,10}$"#
+        return number.range(of: pattern, options: .regularExpression) != nil
+    }
+    
+    func toUserPostgreeDTO() -> UserPostgreDTO {
+        let userPostgreDTO = UserPostgreDTO (
+            id: self.id,
+            username: self.$username.value,
+            email: self.$email.value,
+            contact: self.contact,
+            password: self.password,
+            image: self.image,
+            role: self.role,
+            created_at: self.created_at,
+            updated_at: self.updated_at,
+            deleted_at: self.delete_at
+        )
+        
+        return userPostgreDTO
     }
 }
