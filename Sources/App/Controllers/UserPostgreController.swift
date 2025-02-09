@@ -40,7 +40,12 @@ struct UserPostgreController: RouteCollection {
     // Search user by username or email
     @Sendable
     func searchUser(req: Request) async throws -> [UserPostgreDTO] {
-        // Decode post data into DTO
+        // Explicit manual use URLQueryDecoder()
+        // Error Because Access Level - Internal (default)
+//        let decoder = URLQueryDecoder() // Error
+//        let encoder = URLQueryEncoder() // Error
+        
+        // Decode post data into DTO (Automatic)
         let query = try req.query.decode(UserPostgreDTO.self)
         
         // Search data with DTO value
