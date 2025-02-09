@@ -44,6 +44,6 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Custom Coders Content ByteBuffer Encoding ( File Image -> ByteBuffer)
     [√] Custom Coders Content ByteBuffer Decoding ( ByteBuffer -> File Image )
     [√] Custom Coders Content URL Query ( Search Data Without Regex - PostgreSQL )
-    [ ] Custom Coders Content URL Query ( Search Data With Regex - PostgreSQL )
+    [√] Custom Coders Content URL Query ( Search Data With Regex - PostgreSQL )
     
 ```

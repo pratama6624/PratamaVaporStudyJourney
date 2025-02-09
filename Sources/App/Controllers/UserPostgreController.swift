@@ -48,12 +48,20 @@ struct UserPostgreController: RouteCollection {
             .withDeleted()
             .group(.or) { or in
                 // With the exact same username (Without regex)
-                if let username = query.username {
-                    or.filter(\.$username == username)
-                }
+//                if let username = query.username {
+//                    or.filter(\.$username == username)
+//                }
                 // With the exact same email (Without regex)
+//                if let email = query.email {
+//                    or.filter(\.$email == email)
+//                }
+                
+                // With REGEX
+                if let username = query.username {
+                    or.filter(\.$username, .custom("ILIKE"), "%\(username)%")
+                }
                 if let email = query.email {
-                    or.filter(\.$email == email)
+                    or.filter(\.$email, .custom("ILIKE"), "%\(email)%")
                 }
             }
             .all()
