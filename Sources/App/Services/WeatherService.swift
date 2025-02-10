@@ -10,7 +10,7 @@ import Vapor
 struct WeatherService {
     let client: Client
     
-    func getWeather(for city: String) async throws -> WeatherResponse {
+    func getWeatherByCity(for city: String) async throws -> WeatherResponse {
         let apiKey = "3f791f28c2dbc76d12631dcfe118e1e5"
         let url = "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=\(apiKey)&units=metric"
         
