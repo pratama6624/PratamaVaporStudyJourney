@@ -8,6 +8,6 @@
 import Vapor
 
 // DTO HTML Response
-struct HTML {
+struct HtmlDTO {
     let value: String
 }

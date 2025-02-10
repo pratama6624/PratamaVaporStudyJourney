@@ -8,7 +8,8 @@
 import Vapor
 
 // HTML extension -> encodeResponse
-extension HTML: AsyncResponseEncodable {
+// Async
+extension HtmlDTO: AsyncResponseEncodable {
     public func encodeResponse(for request: Request) async throws -> Response {
         var headers = HTTPHeaders()
         headers.add(name: .contentType, value: "text/html")
