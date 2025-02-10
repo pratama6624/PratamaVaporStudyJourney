@@ -21,3 +21,6 @@ extension HtmlDTO: AsyncResponseEncodable {
         )
     }
 }
+
+
+// EventLoopFuture -> It is no longer used in Swift vesrion 4 & above

@@ -47,8 +47,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Custom Coders Content URL Query ( Search Data With Regex - PostgreSQL )
     [√] Custom Coders Content URL Query ( URLQueryDecoder() -> Internal Access Level )
     [√] Custom Coders Content URL Query ( URLQueryEncoder() -> Internal Access Level )
-    [ ] ResponseEncodable ( EventLoopFuture )
-    [ ] ResponseEncodable ( AsyncResponseEncodable ) -> Hello, I'm here (This is the last part of Content)
+    [√] ResponseEncodable ( EventLoopFuture -> Already Left )
+    [√] ResponseEncodable ( AsyncResponseEncodable )
 ```
 ```bash
     Client
