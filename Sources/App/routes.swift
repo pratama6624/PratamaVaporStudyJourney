@@ -150,6 +150,9 @@ func routes(_ app: Application) throws {
     // Route Controller User Postgre Register
     try app.register(collection: UserPostgreController())
     
+    // Route Controller Open Weather Controller Register
+    try app.register(collection: OpenWeatherController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)
