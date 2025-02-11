@@ -53,6 +53,6 @@ This repository is created to document my journey in learning **Vapor**, a Swift
 ```bash
     Client
     
-    [ ] 
+    [√] Client ( Open Weather API ) 
     [ ]
 ```

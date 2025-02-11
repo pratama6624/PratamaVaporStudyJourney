@@ -7,7 +7,7 @@
 
 import Vapor
 
-struct WeatherResponse: Content {
+struct OpenWeatherResponse: Content {
     let name: String
     let main: MainInfo
     let weather: [WeatherInfo]
