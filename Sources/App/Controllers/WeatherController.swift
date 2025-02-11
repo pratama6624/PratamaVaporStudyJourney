@@ -15,7 +15,7 @@ struct WeatherController: RouteCollection {
             .withMetadata("Show from open weather", "Weather Controller")
         
         // -> /api/visualcrossing?city=jakarta
-        routes.get("api", "visulcrossing", use: self.getVisualCrossingByCity)
+        routes.get("api", "visualcrossing", use: self.getVisualCrossingByCity)
             .withMetadata("Show from visual crossing", "Weather Controller")
     }
     
@@ -37,6 +37,10 @@ struct WeatherController: RouteCollection {
         guard let city: String = req.query["city"] else {
             throw Abort(.badRequest, reason: "City cannot be empty")
         }
+        
+        let weatherService = VisualCrossingService(client: req.client)
+        
+        return try await weatherService.getVisualCrossingWeatherData(for: city)
     }
 }
 

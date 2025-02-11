@@ -7,7 +7,7 @@
 
 import Vapor
 
-struct VisualCrossingServices {
+struct VisualCrossingService {
     let client: Client
     
     func getVisualCrossingWeatherData(for city: String) async throws -> VisualCrossingResponse {
