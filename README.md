@@ -57,5 +57,6 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Client ( Visual Crossing Weather API )
     [√] Client Method ( GET )
     [√] Client Content ( Httpbin API Test GET )
-    [ ] Client Content ( Httpbin API Test POST )
+    [√] Client Content ( Httpbin API Test POST )
+    [ ] Client Content ( Httpbin API Test GET With Basic AUTH )
 ```
