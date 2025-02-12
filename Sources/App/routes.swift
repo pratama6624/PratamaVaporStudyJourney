@@ -153,6 +153,9 @@ func routes(_ app: Application) throws {
     // Route Controller Open Weather Controller Register
     try app.register(collection: WeatherController())
     
+    // Route Controller Client Content Test Using Httpbin API
+    try app.register(collection: ClientContentTestController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)
