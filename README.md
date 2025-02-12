@@ -55,4 +55,6 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     
     [√] Client ( Open Weather API ) 
     [√] Client ( Visual Crossing Weather API )
+    [√] Client Method ( GET )
+    [ ] Client Content (  )
 ```
