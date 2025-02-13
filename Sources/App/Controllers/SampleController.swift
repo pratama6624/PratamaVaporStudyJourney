@@ -160,9 +160,13 @@ struct SampleController: RouteCollection {
     
     // Test Redirect Loop
     @Sendable
-    func testRedirectLoop(req: Request) async throws -> ClientResponse {
+    func testRedirectLoop(req: Request) async throws -> String {
         let response = try await req.client.get("http://localhost:8080/redirect-loop")
         
-        return response
+        if response.status == .movedPermanently, let location = response.headers.first(name: .location) {
+            print("Redirect Loop detected: \(location)")
+        }
+        
+        return "No redirect loop detected"
     }
 }

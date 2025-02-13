@@ -4,6 +4,7 @@ import Vapor
 func routes(_ app: Application) throws {
     // Merubah ke Case Insensitive
     app.routes.caseInsensitive = true
+    app.http.client.configuration.redirectConfiguration = .disallow
     
     // -> GET /
     app.get { req async in
