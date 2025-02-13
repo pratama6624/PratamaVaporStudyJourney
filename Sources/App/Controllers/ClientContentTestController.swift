@@ -21,9 +21,14 @@ struct ClientContentTestController: RouteCollection {
         // Httpbin test GET with basic auth
         routes.get("httpbin", "test-basicauth", use: testBasicAuth.self)
             .withMetadata("test basic auth", "Client Content Controller")
+        
+        // Httpbin test GET JSON response
+        routes.get("httpbin", "test-json", use: testJSon.self)
+            .withMetadata("test json response", "Client Content Controller")
     }
     
     // Httpbin test GET
+    // -> GET /httpbin/test-get
     @Sendable
     func testGet(req: Request) async throws -> ClientResponse {
         let response = try await req.client.get("https://httpbin.org/get") { req in
@@ -37,6 +42,7 @@ struct ClientContentTestController: RouteCollection {
     }
     
     // Httpbin test POST
+    // -> POST /httpbin/test-post
     @Sendable
     func testPost(req: Request) async throws -> ClientResponse {
         let response = try await req.client.post("https://httpbin.org/post") { req in
@@ -50,6 +56,7 @@ struct ClientContentTestController: RouteCollection {
     }
     
     // Httpbin test GET with basic auth
+    // -> GET /httpbin/test-basicauth
     @Sendable
     func testBasicAuth(req: Request) async throws -> ClientResponse {
         let response = try await req.client.get("https://httpbin.org/basic-auth/user123/password123") { req in
@@ -58,5 +65,19 @@ struct ClientContentTestController: RouteCollection {
         }
         
         return response
+    }
+    
+    // Httpbin test GET JSON response
+    // -> GET /httpbin/test-json
+    @Sendable
+    func testJSon(req: Request) async throws -> Response {
+        let response = try await req.client.get("https://httpbin.org/json")
+        let jsonData = response.body.flatMap { Data(buffer: $0) } ?? Data()
+        
+        guard let jsonObject = try? JSONSerialization.jsonObject(with: jsonData, options: []) else {
+            throw Abort(.internalServerError, reason: "Invalid JSON response")
+        }
+        
+        return Response(status: .ok, body: .init(data: try JSONSerialization.data(withJSONObject: jsonObject)))
     }
 }

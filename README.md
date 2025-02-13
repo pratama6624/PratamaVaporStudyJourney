@@ -59,5 +59,6 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Client Content ( Httpbin API Test GET )
     [√] Client Content ( Httpbin API Test POST )
     [√] Client Content ( Httpbin API Test GET With Basic AUTH )
-    [ ] Client Content ( Httpbin API Test GET With JSON Response )
+    [√] Client Content ( Httpbin API Test GET With JSON Response )
+    [ ] Client Content ( Configuration )
 ```
