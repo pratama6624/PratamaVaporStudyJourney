@@ -34,6 +34,14 @@ struct SampleController: RouteCollection {
         // ResponseEncodable
         routes.get("html", use: self.getHtml)
             .withMetadata("return html format", "Sample Controller")
+        
+        // -> GET /test-redirect-loop
+        routes.get("test-redirect-loop", use: self.testRedirectLoop)
+            .withMetadata("test infinite loop", "Sample Controller")
+        
+        // -> GET /redirect-loop
+        routes.get("redirect-loop", use: self.redirectLoop)
+            .withMetadata("infinite loop", "Sample Controller")
     }
     
     // -> GET Request /songs
@@ -139,5 +147,22 @@ struct SampleController: RouteCollection {
                 </body>
                 </html>
         """)
+    }
+    
+    // Redirect Loop
+    @Sendable
+    func redirectLoop(req: Request) async throws -> Response {
+        let response = Response(status: .movedPermanently)
+        response.headers.replaceOrAdd(name: .location, value: "http://localhost:8080/redirect-loop")
+        
+        return response
+    }
+    
+    // Test Redirect Loop
+    @Sendable
+    func testRedirectLoop(req: Request) async throws -> ClientResponse {
+        let response = try await req.client.get("http://localhost:8080/redirect-loop")
+        
+        return response
     }
 }
