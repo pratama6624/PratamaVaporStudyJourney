@@ -157,6 +157,9 @@ func routes(_ app: Application) throws {
     // Route Controller Client Content Test Using Httpbin API
     try app.register(collection: ClientContentTestController())
     
+    // Route Controller Validation Register
+    try app.register(collection: ValidationController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)

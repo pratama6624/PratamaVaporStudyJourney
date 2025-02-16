@@ -64,3 +64,9 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Client Content ( Redirect or Infinite Loop )
     [√] Client Content ( Handle Infinite Loop )
 ```
+```bash
+    Validation
+    
+    [ ] Validation HRE ( Human-Readable Errors )
+    [ ]
+```
