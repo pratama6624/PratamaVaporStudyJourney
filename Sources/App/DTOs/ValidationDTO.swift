@@ -13,6 +13,27 @@ struct ValidationDTO: Content, Validatable {
     let age: Int
     let favoriteColor: Color
     
+    // Validator List :
+    /*
+        - .count(min...) -> Panjang minimal string, array, atau collection
+        - .count(...max) -> Panjang maksimal string, array, collection
+        - .count(min...max) -> Rentang
+        - .alphanumeric -> String ( huruf & angka )
+        - .email -> String format for email
+        - .url -> String format for url
+        - .uuid -> String format for uuid
+        - .ascii -> String ASCII character
+        - .numeric -> String format for number
+        - .in(options...) -> Member of something ( enum, array, & more )
+        - .range(min...) -> Angka minimal
+        - .range(...max) -> Angka maksimal
+        - .range(min...max) -> Angka rentang
+        - .contains(substring) -> Sub string
+        - .begins(with:) -> String begin
+        - .ends(with:) -> String end
+        - .regex(pattern:) -> Pola regex
+     */
+    
     static func validations(_ validations: inout Vapor.Validations) {
         validations.add("name", as: String.self, is: .count(3...), required: true)
         // Specific Validation
