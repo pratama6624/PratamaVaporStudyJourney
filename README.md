@@ -70,5 +70,6 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation HRE ( Human-Readable Errors )
     [√] Validation HRE Format Response ( AbortError Vapor Default )
     [√] Validation HRE Format Response ( Custom Format Response Middleware )
-    [ ]
+    [√] Validation ( Specific Validation )
+    [ ] Validation ( Validatable Protocol & Validator List )
 ```
