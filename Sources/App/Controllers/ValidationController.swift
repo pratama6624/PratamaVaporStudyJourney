@@ -40,7 +40,9 @@ struct ValidationController: RouteCollection {
     // After adding validation to the DTO
     @Sendable
     func validationTestWithHRE(req: Request) async throws -> ValidationDTO {
+        
         // Validation - Register
+        // Validating Request Content
         try ValidationDTO.validate(content: req)
         
         let user = try req.content.decode(ValidationDTO.self)

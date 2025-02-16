@@ -72,5 +72,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation HRE Format Response ( Custom Format Response Middleware )
     [√] Validation ( Specific Validation )
     [√] Validation ( Validatable Protocol & Validator List )
-    [ ] Validation ( Adding Validations )
+    [√] Validation ( Adding Validations )
+    [√] Validation ( Validating Request Content )
+    [ ] Validation ( Validating Request Query )
 ```

@@ -34,6 +34,7 @@ struct ValidationDTO: Content, Validatable {
         - .regex(pattern:) -> Pola regex
      */
     
+    // This is how to add a validation
     static func validations(_ validations: inout Vapor.Validations) {
         validations.add("name", as: String.self, is: .count(3...), required: true)
         // Specific Validation
