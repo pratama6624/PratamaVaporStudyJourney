@@ -14,12 +14,19 @@ struct ValidationController: RouteCollection {
         // Without Human-Readable Errors
         // -> POST Request /validation-test/without-hre
         validationTest.post("without-hre", use: self.validationTestWithoutHRE)
-            .withMetadata("Test Without HRE", "Validation Controller")
+            .withMetadata("Test without HRE", "Validation Controller")
         
+        // Default Error Format Response
         // With Human-Readable Errors
         // -> POST Request /validation-test/with-hre
         validationTest.post("with-hre", use: self.validationTestWithHRE)
-            .withMetadata("Test With HRE", "Validation Controller")
+            .withMetadata("Test with HRE default response format", "Validation Controller")
+        
+        // Custom Error Format Response
+        // With Human-Readable Errors
+        // -> POST Request /validation-test/with-hre-custom-response
+        validationTest.grouped(ValidationMiddleware()).post("with-hre-custom-response", use: self.validationTestWithHRE)
+            .withMetadata("Test with HRE", "Validation Controller")
     }
     
     // Because one path to this DTO request will run with validation because validation has been added
