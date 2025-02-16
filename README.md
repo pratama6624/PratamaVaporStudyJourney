@@ -74,5 +74,6 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation ( Validatable Protocol & Validator List )
     [√] Validation ( Adding Validations )
     [√] Validation ( Validating Request Content )
-    [ ] Validation ( Validating Request Query )
+    [√] Validation ( Validating Request Query )
+    [ ]
 ```
