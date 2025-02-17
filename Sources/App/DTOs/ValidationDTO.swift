@@ -32,19 +32,46 @@ struct ValidationDTO: Content, Validatable {
         - .begins(with:) -> String begin
         - .ends(with:) -> String end
         - .regex(pattern:) -> Pola regex
+        - MORE WITH CUSTOM VALIDATOR
      */
     
     // This is how to add a validation
     static func validations(_ validations: inout Vapor.Validations) {
         // String Validation
-        validations.add("name", as: String.self, is: .count(3...), required: true)
+        validations.add(
+            "name",
+            as: String.self,
+            is: .count(3...),
+            required: true,
+            customFailureDescription: "Name must be at least 3 characters long."
+        )
+        
         // String Validation
         // Specific Validation
-        validations.add("email", as: String.self, is: .email, required: true)
+        validations.add(
+            "email",
+            as: String.self,
+            is: .email,
+            required: true,
+            customFailureDescription: "Invalid email format."
+        )
+        
         // Integer Validation
-        validations.add("age", as: Int.self, is: .range(18...), required: true)
+        validations.add(
+            "age",
+            as: Int.self,
+            is: .range(18...),
+            required: true,
+            customFailureDescription: "Password must be at least 8 characters long."
+        )
+        
         // Enum Validation
-        validations.add("favoriteColor", as: String.self, is: .in("red", "blue", "green"), required: true)
+        validations.add(
+            "favoriteColor",
+            as: String.self,
+            is: .in("red", "blue", "green"),
+            required: true
+        )
     }
 }
 

@@ -34,7 +34,7 @@ struct ValidationController: RouteCollection {
             .withMetadata("Test get user with validation", "Validation Controller")
     }
     
-    // Because one path to this DTO request will run with validation because validation has been added
+    // Because one path to this DTO request will run with validation because validation has been added (if you regiter the validator middleware)
     @Sendable
     func validationTestWithoutHRE(req: Request) async throws -> ValidationDTO {
         let user = try req.content.decode(ValidationDTO.self)
@@ -62,13 +62,17 @@ struct ValidationController: RouteCollection {
         guard let name = req.query[String.self, at: "name"],
               let email = req.query[String.self, at: "email"],
               let age = req.query[Int.self, at: "age"],
-              let favoriteColorString = req.query[String.self, at: "favoriteColor"], let favoriteColor = Color(rawValue: favoriteColorString) else {
+              let favoriteColorString = req.query[String.self, at: "favoriteColor"] else {
                 throw Abort(.badRequest, reason: "Missing required query parameters")
             }
         
+        let favoriteColor = Color(rawValue: favoriteColorString)
+        
+        print("Color: \(String(describing: favoriteColor))")
+        
         try ValidationDTO.validate(query: req)
         
-        let user = ValidationDTO(name: name, email: email, age: age, favoriteColor: favoriteColor)
+        let user = ValidationDTO(name: name, email: email, age: age, favoriteColor: favoriteColor!)
         
         return user
     }
