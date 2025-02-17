@@ -36,10 +36,14 @@ struct ValidationDTO: Content, Validatable {
     
     // This is how to add a validation
     static func validations(_ validations: inout Vapor.Validations) {
+        // String Validation
         validations.add("name", as: String.self, is: .count(3...), required: true)
+        // String Validation
         // Specific Validation
         validations.add("email", as: String.self, is: .email, required: true)
+        // Integer Validation
         validations.add("age", as: Int.self, is: .range(18...), required: true)
+        // Enum Validation
         validations.add("favoriteColor", as: String.self, is: .in("red", "blue", "green"), required: true)
     }
 }

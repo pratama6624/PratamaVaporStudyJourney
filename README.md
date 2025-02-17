@@ -75,5 +75,12 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation ( Adding Validations )
     [√] Validation ( Validating Request Content )
     [√] Validation ( Validating Request Query )
-    [ ]
+    [√] Validation ( Integer Validation )
+    [√] Validation ( String Validation )
+    [√] Validation ( Enum Validation )
+    [ ] Validation ( Custom Errors )
+    [ ] Validation ( Validators )
+    [ ] Validation ( Custom Validators )
+    [ ] Validation Validators ( Extending Validation API )
+    [ ] Validation Validators ( Custom Validator )
 ```
