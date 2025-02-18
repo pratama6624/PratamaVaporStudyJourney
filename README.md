@@ -80,7 +80,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation ( Enum Validation )
     [√] Validation ( Custom Errors )
     [√] Validation ( Validators )
-    [ ] Validation ( Custom Validators )
-    [ ] Validation Validators ( Extending Validation API )
+    [√] Validation ( Custom Validators - Manual Way )
+    [√] Validation ( Custom Validators - Automatic Way With Build in Validation )
+    [√] Validation Validators ( Extending Validation API )
     [ ] Validation Validators ( Custom Validator )
 ```

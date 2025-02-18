@@ -32,6 +32,11 @@ struct ValidationController: RouteCollection {
         // -> GET /validation-test/user?name=pratama&email=pratama@gmail.com&age=25&favoriteColor=green
         validationTest.grouped(ValidationMiddleware()).get("user", use: self.getusershell)
             .withMetadata("Test get user with validation", "Validation Controller")
+        
+        // Custom Validator
+        // -> GET /validation-test/validate?zipCode=12345
+        validationTest.grouped(ValidationMiddleware()).get("validate", use: self.validateZipCodeHandler)
+            .withMetadata("Test custom validator", "Validation Controller")
     }
     
     // Because one path to this DTO request will run with validation because validation has been added (if you regiter the validator middleware)
@@ -68,12 +73,23 @@ struct ValidationController: RouteCollection {
         
         let favoriteColor = Color(rawValue: favoriteColorString)
         
-        print("Color: \(String(describing: favoriteColor))")
-        
         try ValidationDTO.validate(query: req)
         
         let user = ValidationDTO(name: name, email: email, age: age, favoriteColor: favoriteColor!)
         
         return user
+    }
+    
+    // Custom Validator
+    @Sendable
+    func validateZipCodeHandler(req: Request) async throws -> ZipCodeDTO {
+        try ZipCodeDTO.validate(query: req)
+        let zipCodeDTO = try req.query.decode(ZipCodeDTO.self)
+        
+        // Custom validator (manual)
+        // Must be called independently
+//        try zipCodeDTO.validateZipCode()
+        
+        return zipCodeDTO
     }
 }
