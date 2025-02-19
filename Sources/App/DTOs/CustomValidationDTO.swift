@@ -32,6 +32,8 @@ struct CustomValidationDTO: Content, Validatable {
         validations.add("zipCode", as: String.self, is: .zipCode)
         // password custom validation
         validations.add("password", as: String.self, is: .password)
+        // username custom validation
+        validations.add("username", as: String.self, is: .username)
         validations.add("email", as: String.self, is: .email)
         validations.add("name", as: String.self, is: .count(3...))
     }

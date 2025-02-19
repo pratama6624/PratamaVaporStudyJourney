@@ -34,4 +34,13 @@ extension Validator where T == String {
             }
         }
     }
+    
+    // Logic for custom validation username
+    static var username: Validator<T> {
+        .init { input in
+            let regex = "^[A-Za-z0-9](?:[A-Za-z0-9_]{3,13}[A-Za-z0-9])?$"
+            let isValid = input.range(of: regex, options: .regularExpression) != nil
+            return ValidatorResults.Username(isValid: isValid)
+        }
+    }
 }
