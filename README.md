@@ -82,6 +82,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation ( Validators )
     [√] Validation ( Custom Validators - Manual Way )
     [√] Validation ( Custom Validators - Automatic Way With Build in Validation )
+    [√] Validation Sample 1 ( Custom Validators - Zip Code )
+    [√] Validation Sample 2 ( Custom Validators - Password )
     [√] Validation Validators ( Extending Validation API )
     [ ] Validation Validators ( Custom Validator )
 ```

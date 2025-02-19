@@ -7,10 +7,11 @@
 
 import Vapor
 
-struct ZipCodeDTO: Content, Validatable {
+struct CustomValidationDTO: Content, Validatable {
     let zipCode: String
     let email: String
     let name: String
+    let password: String
     
     // Manual
     func validateZipCode() throws {
@@ -27,7 +28,10 @@ struct ZipCodeDTO: Content, Validatable {
     // This is how to add a validation
     // Automatic way with build-in validation
     static func validations(_ validations: inout Vapor.Validations) {
+        // zip code custom validation
         validations.add("zipCode", as: String.self, is: .zipCode)
+        // password custom validation
+        validations.add("password", as: String.self, is: .password)
         validations.add("email", as: String.self, is: .email)
         validations.add("name", as: String.self, is: .count(3...))
     }

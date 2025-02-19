@@ -82,9 +82,9 @@ struct ValidationController: RouteCollection {
     
     // Custom Validator
     @Sendable
-    func validateZipCodeHandler(req: Request) async throws -> ZipCodeDTO {
-        try ZipCodeDTO.validate(query: req)
-        let zipCodeDTO = try req.query.decode(ZipCodeDTO.self)
+    func validateZipCodeHandler(req: Request) async throws -> CustomValidationDTO {
+        try CustomValidationDTO.validate(query: req)
+        let zipCodeDTO = try req.query.decode(CustomValidationDTO.self)
         
         // Custom validator (manual)
         // Must be called independently
