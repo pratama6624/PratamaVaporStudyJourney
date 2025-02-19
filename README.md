@@ -82,9 +82,51 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation ( Validators )
     [√] Validation ( Custom Validators - Manual Way )
     [√] Validation ( Custom Validators - Automatic Way With Build in Validation )
-    [√] Validation Sample 1 ( Custom Validators - Zip Code )
-    [√] Validation Sample 2 ( Custom Validators - Password )
-    [√] Validation Sample 3 ( Custom Validators - Username )
     [√] Validation Validators ( Extending Validation API )
+    [√] Validation Extending Validation API Sample 1 ( Custom Validators - Zip Code )
+    [√] Validation Extending Validation API Sample 2 ( Custom Validators - Password )
+    [√] Validation Extending Validation API Sample 3 ( Custom Validators - Username )
     [ ] Validation Validators ( Custom Validator )
 ```
+```bash
+    Async
+    
+    [ ]
+    [ ]
+```
+```bash
+    Logging
+    
+    [ ]
+    [ ]
+```
+```bash
+    Environment
+    
+    [ ]
+    [ ]
+```
+```bash
+    Errors
+    
+    [ ]
+    [ ]
+```
+
+---
+
+### Fluent
+```bash
+    Model
+    
+    [ ]
+    [ ]
+```
+```bash
+    Relations
+    
+    [ ]
+    [ ]
+```
+
+and more
