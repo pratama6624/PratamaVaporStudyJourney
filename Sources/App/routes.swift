@@ -160,6 +160,9 @@ func routes(_ app: Application) throws {
     // Route Controller Validation Register
     try app.register(collection: ValidationController())
     
+    // Route Controller Async Register
+    try app.register(collection: AsyncController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)

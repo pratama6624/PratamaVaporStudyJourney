@@ -91,8 +91,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
 ```bash
     Async
     
-    [√] Async ( Await Handlet Simulation await - sleep 5ns)
-    [ ]
+    [√] Async ( Await Handler Simulation await - sleep 5ns)
+    [√] EventLoopFuture ( Handler Simulation await - sleep 5ns )
 ```
 ```bash
     Logging
