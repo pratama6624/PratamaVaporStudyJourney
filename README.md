@@ -86,7 +86,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation Extending Validation API Sample 1 ( Custom Validators - Zip Code )
     [√] Validation Extending Validation API Sample 2 ( Custom Validators - Password )
     [√] Validation Extending Validation API Sample 3 ( Custom Validators - Username )
-    [ ] Validation Validators ( Custom Validator )
+    [√] Validation Validators Sample 1 ( Custom Validator Model - Employee )
 ```
 ```bash
     Async

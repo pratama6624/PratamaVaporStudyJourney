@@ -7,7 +7,19 @@
 
 import Vapor
 
+// Custom Validation
+let allCompanyEmployees: [String] = [
+    "Hwang Yeji",
+    "Shin Yuna",
+    "Shun Ryujin",
+    "Lee Chaeryeong",
+    "Choi Jisu"
+]
+
 struct CustomValidationDTO: Content, Validatable {
+    // For custom validation
+    let employeeName: String
+    
     let zipCode: String
     let email: String
     let name: String
@@ -36,5 +48,19 @@ struct CustomValidationDTO: Content, Validatable {
         validations.add("username", as: String.self, is: .username)
         validations.add("email", as: String.self, is: .email)
         validations.add("name", as: String.self, is: .count(3...))
+        
+        // Custom validation
+        validations.add(
+            "employeeName",
+            as: String.self,
+            is: .custom("Employee is not registered in the company") { employeeName in
+                for employee in allCompanyEmployees {
+                    if employee == employeeName {
+                        return true
+                    }
+                }
+                return false
+            }
+        )
     }
 }
