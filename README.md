@@ -91,7 +91,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
 ```bash
     Async
     
-    [ ]
+    [√] Async ( Await Handlet Simulation await - sleep 5ns)
     [ ]
 ```
 ```bash
