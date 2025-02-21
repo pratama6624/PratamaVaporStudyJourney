@@ -163,6 +163,9 @@ func routes(_ app: Application) throws {
     // Route Controller Async Register
     try app.register(collection: AsyncController())
     
+    // Route Controller ELF Register
+    try app.register(collection: EventLoopController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)
