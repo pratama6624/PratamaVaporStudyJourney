@@ -33,6 +33,11 @@ struct EventLoopController: RouteCollection {
         // chaining
         routes.get("eventloopfuture", "chaining", use: self.fetchDataTest)
             .withMetadata("Test chaining", "ELF Controller")
+        
+        // Make Future
+        // makeSucceededFuture
+        routes.get("eventloopfuture", "makesucceededfuture", use: self.getProduct)
+            .withMetadata("Test make succeeded future", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -138,5 +143,16 @@ struct EventLoopController: RouteCollection {
             
             return Response(status: .ok, headers: headers, body: .init(stringLiteral: bodyString))
         }
+    }
+    
+    // GET Request -> /eventloopfuture/makesucceededfuture
+    @Sendable
+    func getProduct(req: Request) -> EventLoopFuture<[String]> {
+        let eventLoop = req.eventLoop
+        let products: [String] = [
+            "Macbook Pro", "Iphone 16e", "Iphone 15 Pro", "Apple Watch", "Airpods Pro"
+        ]
+        
+        return eventLoop.makeSucceededFuture(products)
     }
 }
