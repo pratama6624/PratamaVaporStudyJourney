@@ -22,6 +22,9 @@ struct EventLoopController: RouteCollection {
         routes.get("eventloopfuture", "flatmapthrowingwithquerytest", use: self.flatMapThrowingTestWithQueryParams)
             .withMetadata("Test map throwing with query params", "ELF Controller")
         
+        // flat map test -> add 10
+        routes.get("eventloopfuture", "flatmap", use: self.flatMapTest)
+            .withMetadata("Test flat map", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -55,7 +58,7 @@ struct EventLoopController: RouteCollection {
         let eventLoop = req.eventLoop
         
         return eventLoop.future().flatMapThrowing {
-            guard let numberParams = try? req.query.get(Int.self, at: "number" ) else {
+            guard let numberParams = try? req.query.get(Int.self, at: "number") else {
                 throw Abort(.badRequest, reason: "Missing 'number' query parameter")
             }
             
@@ -64,6 +67,19 @@ struct EventLoopController: RouteCollection {
             }
             
             return "Valid number \(numberParams)"
+        }
+    }
+    
+    // GET Request -> /eventloopfuture/flatmap
+    // Add 10
+    @Sendable
+    func flatMapTest(req: Request) -> EventLoopFuture<Int> {
+        let eventLoop = req.eventLoop
+        let futureNumber = eventLoop.makeSucceededFuture(10)
+        
+        return futureNumber.flatMap { number in
+            let newNumber = number + 10
+            return eventLoop.makeSucceededFuture(newNumber)
         }
     }
 }

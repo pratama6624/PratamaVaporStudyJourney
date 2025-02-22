@@ -95,9 +95,10 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] EventLoopFuture ( Handler Simulation await - sleep 5ns )
     [√] Migration ( ELP Event Loop Future -> Async Await )
     [√] Event Loop ( Future -> Map Test )
-    [√] Event Loop ( Future -> Map Map Throwing Test )
-    [√] Event Loop ( Future -> Map Map Throwing Test With Query Params )
-    [ ]
+    [√] Event Loop ( Future -> Flat Map Throwing Test )
+    [√] Event Loop ( Future -> Flat Map Throwing Test With Query Params )
+    [√] Event Loop ( Future -> Flat Map Test )
+    [ ] Event Loop ( Future -> Transform Test )
 ```
 ```bash
     Logging
