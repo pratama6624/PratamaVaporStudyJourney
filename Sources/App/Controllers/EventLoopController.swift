@@ -29,6 +29,10 @@ struct EventLoopController: RouteCollection {
         // transform test -> server health check
         routes.get("eventloopfuture", "serverhealthtest", use: self.transformTest)
             .withMetadata("Test transform", "ELF Controller")
+        
+        // chaining
+        routes.get("eventloopfuture", "chaining", use: self.fetchDataTest)
+            .withMetadata("Test chaining", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -96,5 +100,43 @@ struct EventLoopController: RouteCollection {
         let serverIsHealthyFuture = eventLoop.future(true)
         
         return serverIsHealthyFuture.transform(to: "Server is OK")
+    }
+    
+    // GET Request -> /eventloopfuture/fetchdata
+    @Sendable
+    func fetchDataTest(req: Request) -> EventLoopFuture<Response> {
+        let client = req.client
+        let eventLoop = req.eventLoop
+        
+        // get from params
+        guard let idString = try? req.query.get(String.self, at: "id") else {
+            return eventLoop.makeFailedFuture(Abort(.badRequest, reason: "Invalid id"))
+        }
+        
+        // Convert id -> UUID with flat map throwing
+        // Chaining
+        return eventLoop.future(idString).flatMapThrowing { id in
+            guard let uuid = UUID(uuidString: id) else {
+                throw Abort(.badRequest, reason: "Invalid id")
+            }
+            
+            return uuid
+        }
+        .flatMap { uuid in
+            let url = "https://reqres.in/api/users/\(uuid.uuidString.prefix(1))"
+            return client.get(URI(string: url))
+        }
+        .flatMapThrowing { response in
+            guard let buffer = response.body,
+                  let bodyString = buffer.getString(at: 0, length
+                                                    : buffer.readableBytes) else {
+                throw Abort(.notFound, reason: "Data not found")
+            }
+            
+            var headers = HTTPHeaders()
+            headers.add(name: .contentType, value: "appliable/json")
+            
+            return Response(status: .ok, headers: headers, body: .init(stringLiteral: bodyString))
+        }
     }
 }
