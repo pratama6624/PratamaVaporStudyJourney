@@ -96,6 +96,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Migration ( ELP Event Loop Future -> Async Await )
     [√] Event Loop ( Future -> Map Test )
     [√] Event Loop ( Future -> Map Map Throwing Test )
+    [√] Event Loop ( Future -> Map Map Throwing Test With Query Params )
+    [ ]
 ```
 ```bash
     Logging
