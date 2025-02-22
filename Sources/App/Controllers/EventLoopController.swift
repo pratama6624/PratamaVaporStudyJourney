@@ -25,6 +25,10 @@ struct EventLoopController: RouteCollection {
         // flat map test -> add 10
         routes.get("eventloopfuture", "flatmap", use: self.flatMapTest)
             .withMetadata("Test flat map", "ELF Controller")
+        
+        // transform test -> server health check
+        routes.get("eventloopfuture", "serverhealthtest", use: self.transformTest)
+            .withMetadata("Test transform", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -81,5 +85,16 @@ struct EventLoopController: RouteCollection {
             let newNumber = number + 10
             return eventLoop.makeSucceededFuture(newNumber)
         }
+    }
+    
+    // GET Request -> /eventloopfuture/transform
+    // transformTest -> Server health test
+    @Sendable
+    func transformTest(req: Request) -> EventLoopFuture<String> {
+        let eventLoop = req.eventLoop
+        
+        let serverIsHealthyFuture = eventLoop.future(true)
+        
+        return serverIsHealthyFuture.transform(to: "Server is OK")
     }
 }
