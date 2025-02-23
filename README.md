@@ -105,7 +105,15 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Event Loop ( Future -> Make Succeeded + Failed Future )
     [√] Event Loop ( Future -> When Complete Success )
     [√] Event Loop ( Future -> When Complete Failure )
-    [ ] Event Loop ( Future -> .get )
+    [√] Event Loop ( Future Blocking Event Loop -> .get )
+    [√] Event Loop ( Future Blocking Event Loop Safe Version of .get -> .wait )
+        -> Danger ( Bloking IO -> It will block the event loop and will make the server slow, down and even hang )
+        -> Forbidden ( It will throw an error if the end point is called because vapor forbids the use of .get & .wait in the main event loop )
+        -> Mandatory ( Keep using non blocking in Vapor )
+    [ ] Even Loop ( Promise )
+    [ ] Event Loop ( Hop )
+    [ ] Blocking ( I/O Bound )
+    [ ] Blocking ( CPU Bound )
 ```
 ```bash
     Logging

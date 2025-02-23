@@ -54,6 +54,13 @@ struct EventLoopController: RouteCollection {
         // .success & .failure
         routes.get("eventloopfuture", "whencomplete", use: self.whenCompleteTest)
             .withMetadata("Test when complete", "ELF Controller")
+        
+        // .get & .wait
+        // Blocking IO
+        // Danger -> It will block the event loop and will make the serve slow, down and even hang
+        // Forbidden -> It will throw an error if the end point is called because vapor forbids the use of .get & .wait in the main event loop
+        routes.get("eventloopfuture", "gettestblocking", use: self.getAndWaitTest)
+            .withMetadata("Test blocking event loop .get & .wait", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -245,5 +252,28 @@ struct EventLoopController: RouteCollection {
         }
         
         return futureResponse
+    }
+    
+    // GET Request -> /eventloopfuture/getTestBlocking
+    @Sendable
+    func getAndWaitTest(req: Request) -> String {
+        let eventLoop = req.eventLoop
+        let futureString: EventLoopFuture<String> = getDataFromExternalAPI(eventLoop: eventLoop)
+        
+        return DispatchQueue.global().sync {
+            let result = try? futureString.wait()
+            return result ?? "No data"
+        }
+    }
+    // Blocking get data from external API with delay 2 second
+    private func getDataFromExternalAPI(eventLoop: EventLoop) -> EventLoopFuture<String> {
+        let promise = eventLoop.makePromise(of: String.self)
+        
+        // Delay 2 second
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            promise.succeed("Data success")
+        }
+        
+        return promise.futureResult
     }
 }
