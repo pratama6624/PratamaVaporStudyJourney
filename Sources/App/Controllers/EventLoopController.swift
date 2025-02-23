@@ -49,6 +49,11 @@ struct EventLoopController: RouteCollection {
         // makeFailedFuture
         routes.get("eventloopfuture", "makesucceededfailedfuture", use: self.validationUUIDMakeSucceededFailedFuture)
             .withMetadata("Test make succeeded + failed future", "ELF Controller")
+        
+        // When complete
+        // .success & .failure
+        routes.get("eventloopfuture", "whencomplete", use: self.whenCompleteTest)
+            .withMetadata("Test when complete", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -197,5 +202,48 @@ struct EventLoopController: RouteCollection {
         ]
         
         return eventLoop.makeSucceededFuture(user)
+    }
+    
+    // GET Request -> /eventloopfuture/whencomplete?id=87860987-0318-47a2-89a9-ca8bbfbbace7
+    @Sendable
+    func whenCompleteTest(req: Request) -> EventLoopFuture<Response> {
+        let eventLoop = req.eventLoop
+        let client = req.client
+        
+        // Optional handling UUID String parameter
+        guard let idString = try? req.query.get(String.self, at: "id"), let uuid = UUID(uuidString: idString) else {
+            return eventLoop.makeFailedFuture(Abort(.badRequest, reason: "Invalid ID"))
+        }
+        
+        // Success in getting data
+        let url = URI(string: "https://reqres.in/api/users/\(uuid.uuidString.prefix(1))")
+        
+        // Failed to get data
+//        let url = URI(string: "https://example/api/users/\(uuid.uuidString.prefix(1))")
+        
+        // Use flat map throwing -> return Response
+        let futureResponse = client.get(url).flatMapThrowing { response in
+            guard let buffer = response.body, let bodyString = buffer.getString(at: 0, length: buffer.readableBytes) else {
+                throw Abort(.badRequest, reason: "Data not found")
+            }
+            
+            var headers = HTTPHeaders()
+            headers.add(name: "Content-Type", value: "application/json")
+            
+            return Response(status: .ok, headers: headers, body: .init(stringLiteral: bodyString))
+        }
+        
+        // Process when complete
+        // Logging -> Only Terminal
+        futureResponse.whenComplete { result in
+            switch result {
+            case .success(let response):
+                print("Success: \(response.status)")
+            case .failure(let error):
+                print("Error: [Data Not Found] -> \(error.localizedDescription)")
+            }
+        }
+        
+        return futureResponse
     }
 }
