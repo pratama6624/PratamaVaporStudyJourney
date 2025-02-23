@@ -102,7 +102,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Event Loop ( Future -> Chaining )
     [√] Event Loop ( Future -> Make Succeeded Future )
     [√] Event Loop ( Future -> Make Failed Future )
-    [ ] Event Loop ( Future -> Make Succeeded + Failed Future )
+    [√] Event Loop ( Future -> Make Succeeded + Failed Future )
     [ ] Event Loop ( Future -> whenComplete )
 ```
 ```bash

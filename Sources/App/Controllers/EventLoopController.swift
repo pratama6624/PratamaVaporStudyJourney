@@ -43,6 +43,12 @@ struct EventLoopController: RouteCollection {
         // makeFailedFuture
         routes.get("eventloopfuture", "makefailedfuture", use: self.validateUUIDMakeFuture)
             .withMetadata("Test make failed future", "ELF Controller")
+        
+        // Make Future
+        // makeSucceededFuture
+        // makeFailedFuture
+        routes.get("eventloopfuture", "makesucceededfailedfuture", use: self.validationUUIDMakeSucceededFailedFuture)
+            .withMetadata("Test make succeeded + failed future", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -112,7 +118,7 @@ struct EventLoopController: RouteCollection {
         return serverIsHealthyFuture.transform(to: "Server is OK")
     }
     
-    // GET Request -> /eventloopfuture/fetchdata
+    // GET Request -> /eventloopfuture/fetchdata?id=87860987-0318-47a2-89a9-ca8bbfbbace7
     @Sendable
     func fetchDataTest(req: Request) -> EventLoopFuture<Response> {
         let client = req.client
@@ -161,7 +167,7 @@ struct EventLoopController: RouteCollection {
         return eventLoop.makeSucceededFuture(products)
     }
     
-    // GET Request -> /eventloopfuture/makeFailedFuture
+    // GET Request -> /eventloopfuture/makeFailedFuture?id=87860987-0318-47a2-89a9-ca8bbfbbace7
     @Sendable
     func validateUUIDMakeFuture(req: Request) -> EventLoopFuture<String> {
         let eventLoop = req.eventLoop
@@ -171,5 +177,25 @@ struct EventLoopController: RouteCollection {
         }
         
         return eventLoop.makeSucceededFuture(uuid.uuidString)
+    }
+    
+    // GET Request -> /eventloopfuture/makesucceededfailedfuture?id=87860987-0318-47a2-89a9-ca8bbfbbace7
+    @Sendable
+    func validationUUIDMakeSucceededFailedFuture(req: Request) -> EventLoopFuture<[String: String]> {
+        let eventLoop = req.eventLoop
+        
+        // UUID parameter optional handling
+        guard let uuidString = try? req.query.get(String.self, at: "id"), let uuid = UUID(uuidString: uuidString) else {
+            return eventLoop.makeFailedFuture(Abort(.badRequest, reason: "Invalid ID"))
+        }
+        
+        // Data simulation
+        let user: [String: String] = [
+            "id": uuid.uuidString,
+            "name": "Pratama",
+            "age": "25"
+        ]
+        
+        return eventLoop.makeSucceededFuture(user)
     }
 }
