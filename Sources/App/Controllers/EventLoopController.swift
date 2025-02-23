@@ -38,6 +38,11 @@ struct EventLoopController: RouteCollection {
         // makeSucceededFuture
         routes.get("eventloopfuture", "makesucceededfuture", use: self.getProduct)
             .withMetadata("Test make succeeded future", "ELF Controller")
+        
+        // Make Future
+        // makeFailedFuture
+        routes.get("eventloopfuture", "makefailedfuture", use: self.validateUUIDMakeFuture)
+            .withMetadata("Test make failed future", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -154,5 +159,17 @@ struct EventLoopController: RouteCollection {
         ]
         
         return eventLoop.makeSucceededFuture(products)
+    }
+    
+    // GET Request -> /eventloopfuture/makeFailedFuture
+    @Sendable
+    func validateUUIDMakeFuture(req: Request) -> EventLoopFuture<String> {
+        let eventLoop = req.eventLoop
+        
+        guard let uuidString = try? req.query.get(String.self, at: "id"), let uuid = UUID(uuidString: uuidString) else {
+            return eventLoop.makeFailedFuture(Abort(.badRequest, reason: "Invalid ID"))
+        }
+        
+        return eventLoop.makeSucceededFuture(uuid.uuidString)
     }
 }
