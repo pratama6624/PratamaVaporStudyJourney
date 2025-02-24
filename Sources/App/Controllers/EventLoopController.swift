@@ -69,6 +69,11 @@ struct EventLoopController: RouteCollection {
         // Promise -> Fail
         routes.get("eventloopfuture", "promisefail", use: self.getPromiseFail)
             .withMetadata("Test failed promise", "ELF Controller")
+        
+        // Promise -> Async
+        routes.get("eventloopfuture", "promiseasync", use: self.promiseAsync)
+            .withMetadata("Test promise async", "ELF Controller")
+        
     }
     
     // GET Request -> /eventloopfuture/map
@@ -310,6 +315,24 @@ struct EventLoopController: RouteCollection {
         
         eventLoop.scheduleTask(in: .seconds(2)) {
             promise.fail(Abort(.internalServerError, reason: "There is an error"))
+        }
+        
+        return promise.futureResult
+    }
+    
+    // GET Request -> /eventloopfuture/promiseasync
+    // Simulation async
+    @Sendable
+    func promiseAsync(req: Request) -> EventLoopFuture<String> {
+        let promise = req.eventLoop.makePromise(of: String.self)
+        
+        Task {
+            do {
+                try await Task.sleep(nanoseconds: 2_000_000_000) // 2 second
+                promise.succeed("Result of asyncFunction!")
+            } catch {
+                promise.fail(error)
+            }
         }
         
         return promise.futureResult
