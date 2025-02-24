@@ -65,6 +65,10 @@ struct EventLoopController: RouteCollection {
         // Promise -> Succeed
         routes.get("eventloopfuture", "promisesucceed", use: self.getPromiseSucceed)
             .withMetadata("Test succeed promise", "ELF Controller")
+        
+        // Promise -> Fail
+        routes.get("eventloopfuture", "promisefail", use: self.getPromiseFail)
+            .withMetadata("Test failed promise", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -291,6 +295,21 @@ struct EventLoopController: RouteCollection {
         
         eventLoop.scheduleTask(in: .seconds(2)) {
             promise.succeed("Data success")
+        }
+        
+        return promise.futureResult
+    }
+    
+    // GET Request -> /eventloopfuture/promisesucceed
+    // Simulation if fail
+    // Future data types
+    @Sendable
+    func getPromiseFail(req: Request) -> EventLoopFuture<String> {
+        let eventLoop = req.eventLoop
+        let promise = eventLoop.makePromise(of: String.self)
+        
+        eventLoop.scheduleTask(in: .seconds(2)) {
+            promise.fail(Abort(.internalServerError, reason: "There is an error"))
         }
         
         return promise.futureResult

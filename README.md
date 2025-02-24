@@ -112,9 +112,9 @@ This repository is created to document my journey in learning **Vapor**, a Swift
         -> Danger ( Bloking IO -> It will block the event loop and will make the server slow, down and even hang )
         -> Forbidden ( It will throw an error if the end point is called because vapor forbids the use of .get & .wait in the main event loop )
         -> Mandatory ( Keep using non blocking in Vapor )
-    [ ] Even Loop ( Promise )
+    [√] Even Loop ( Promise )
         [√] Promise Succeed
-        [ ] Promise Fail
+        [√] Promise Fail
     [ ] Event Loop ( Hop )
     [ ] Blocking ( I/O Bound )
     [ ] Blocking ( CPU Bound )
