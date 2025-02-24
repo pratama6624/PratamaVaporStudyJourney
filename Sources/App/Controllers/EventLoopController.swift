@@ -61,6 +61,10 @@ struct EventLoopController: RouteCollection {
         // Forbidden -> It will throw an error if the end point is called because vapor forbids the use of .get & .wait in the main event loop
         routes.get("eventloopfuture", "gettestblocking", use: self.getAndWaitTest)
             .withMetadata("Test blocking event loop .get & .wait", "ELF Controller")
+        
+        // Promise -> Succeed
+        routes.get("eventloopfuture", "promisesucceed", use: self.getPromiseSucceed)
+            .withMetadata("Test succeed promise", "ELF Controller")
     }
     
     // GET Request -> /eventloopfuture/map
@@ -271,6 +275,21 @@ struct EventLoopController: RouteCollection {
         
         // Delay 2 second
         DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+            promise.succeed("Data success")
+        }
+        
+        return promise.futureResult
+    }
+    
+    // GET Request -> /eventloopfuture/promisesucceed
+    // Simulation if successful
+    // Future data types
+    @Sendable
+    func getPromiseSucceed(req: Request) -> EventLoopFuture<String> {
+        let eventLoop = req.eventLoop
+        let promise = eventLoop.makePromise(of: String.self)
+        
+        eventLoop.scheduleTask(in: .seconds(2)) {
             promise.succeed("Data success")
         }
         

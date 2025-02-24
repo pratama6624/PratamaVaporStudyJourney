@@ -113,6 +113,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
         -> Forbidden ( It will throw an error if the end point is called because vapor forbids the use of .get & .wait in the main event loop )
         -> Mandatory ( Keep using non blocking in Vapor )
     [ ] Even Loop ( Promise )
+        [√] Promise Succeed
+        [ ] Promise Fail
     [ ] Event Loop ( Hop )
     [ ] Blocking ( I/O Bound )
     [ ] Blocking ( CPU Bound )
