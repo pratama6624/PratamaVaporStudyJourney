@@ -74,6 +74,10 @@ struct EventLoopController: RouteCollection {
         routes.get("eventloopfuture", "promiseasync", use: self.promiseAsync)
             .withMetadata("Test promise async", "ELF Controller")
         
+        // Hop -> Managing Event Loop Usage
+        routes.get("eventloopfuture", "hoptest", use: self.hopTest)
+            .withMetadata("Test hop", "ELF Controller")
+        
     }
     
     // GET Request -> /eventloopfuture/map
@@ -267,6 +271,8 @@ struct EventLoopController: RouteCollection {
         return futureResponse
     }
     
+    // --------------------------------------------
+    
     // GET Request -> /eventloopfuture/getTestBlocking
     @Sendable
     func getAndWaitTest(req: Request) -> String {
@@ -278,6 +284,7 @@ struct EventLoopController: RouteCollection {
             return result ?? "No data"
         }
     }
+    
     // Blocking get data from external API with delay 2 second
     private func getDataFromExternalAPI(eventLoop: EventLoop) -> EventLoopFuture<String> {
         let promise = eventLoop.makePromise(of: String.self)
@@ -289,6 +296,8 @@ struct EventLoopController: RouteCollection {
         
         return promise.futureResult
     }
+    
+    // --------------------------------------------
     
     // GET Request -> /eventloopfuture/promisesucceed
     // Simulation if successful
@@ -337,4 +346,44 @@ struct EventLoopController: RouteCollection {
         
         return promise.futureResult
     }
+    
+    // --------------------------------------------
+    
+    // GET Request -> /eventloopfuture/hoptest
+    // Move from event loop A to B
+    /*
+        Study case :
+        Event Loop A / Main -> Mengambil data dari database
+        Event Loop B -> Melakukan enkripsi setelah data didapat dari database
+        Untuk mengurangi beban dari Event Loop A / Main
+     */
+    @Sendable
+    func hopTest(req: Request) -> EventLoopFuture<String> {
+        let eventLoopA = req.eventLoop
+        let eventLoopB = req.application.eventLoopGroup.next()
+        
+        return getDataFromDB(eventLoop: eventLoopA) // Get data
+            .hop(to: eventLoopB) // Encryption proses
+            .map { data in
+                dataEncryption(data)
+            }
+    }
+    
+    // Event Loop A -> Simulasi ambil data dari database
+    private func getDataFromDB(eventLoop: EventLoop) -> EventLoopFuture<String> {
+        let promise = eventLoop.makePromise(of: String.self)
+        
+        eventLoop.scheduleTask(in: .seconds((2))) {
+            promise.succeed("Sensitive data")
+        }
+        
+        return promise.futureResult
+    }
+    
+    // Event Loop B -> Simulasi untuk enkripsi data
+    private func dataEncryption(_ data: String) -> String {
+        return "Encrypted: \(data)"
+    }
+    
+    // --------------------------------------------
 }

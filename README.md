@@ -116,7 +116,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
         [√] Promise Succeed
         [√] Promise Fail
         [√] Promise Async
-    [ ] Event Loop ( Hop )
+    [√] Event Loop ( Hop )
     [ ] Blocking ( I/O Bound )
     [ ] Blocking ( CPU Bound )
 ```
