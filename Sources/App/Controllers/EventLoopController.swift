@@ -78,6 +78,10 @@ struct EventLoopController: RouteCollection {
         routes.get("eventloopfuture", "hoptest", use: self.hopTest)
             .withMetadata("Test hop", "ELF Controller")
         
+        // Blocking event loop test
+        routes.get("eventloopfuture", "blockingtest", use: self.blockingTest)
+            .withMetadata("Test blocking event loop", "ELF Controller")
+        
     }
     
     // GET Request -> /eventloopfuture/map
@@ -386,4 +390,13 @@ struct EventLoopController: RouteCollection {
     }
     
     // --------------------------------------------
+    
+    // DANGEROUS in vapor
+    // Stop the event loop
+    // GET Request -> /eventloopfuture/blockingtest
+    @Sendable
+    func blockingTest(req: Request) -> String {
+        sleep(5) // delay 5 second
+        return "Hello, world"
+    }
 }

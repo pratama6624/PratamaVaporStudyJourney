@@ -117,8 +117,11 @@ This repository is created to document my journey in learning **Vapor**, a Swift
         [√] Promise Fail
         [√] Promise Async
     [√] Event Loop ( Hop )
-    [ ] Blocking ( I/O Bound )
-    [ ] Blocking ( CPU Bound )
+    [ ] Blocking
+        [√] Blocking Event Loop Test -> Sleep for 5 second
+        [ ] Thread Pool
+        [ ] Blocking ( I/O Bound )
+        [ ] Blocking ( CPU Bound )
 ```
 ```bash
     Logging
