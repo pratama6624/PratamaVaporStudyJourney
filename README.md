@@ -119,7 +119,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Event Loop ( Hop )
     [ ] Blocking
         [√] Blocking Event Loop Test -> Sleep for 5 second
-        [ ] Thread Pool
+        [√] Thread Pool
         [ ] Blocking ( I/O Bound )
         [ ] Blocking ( CPU Bound )
 ```

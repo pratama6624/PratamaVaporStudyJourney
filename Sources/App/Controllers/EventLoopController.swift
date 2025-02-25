@@ -82,6 +82,10 @@ struct EventLoopController: RouteCollection {
         routes.get("eventloopfuture", "blockingtest", use: self.blockingTest)
             .withMetadata("Test blocking event loop", "ELF Controller")
         
+        // Handle blocking event loop with thread pool
+        routes.get("eventloopfuture", "threadpooltest", use: self.threadPoolTest)
+            .withMetadata("Test thread pool", "ELF Controller")
+        
     }
     
     // GET Request -> /eventloopfuture/map
@@ -398,5 +402,15 @@ struct EventLoopController: RouteCollection {
     func blockingTest(req: Request) -> String {
         sleep(5) // delay 5 second
         return "Hello, world"
+    }
+    
+    // THREAD POOL
+    // Handle blocking event loop with thread pool
+    @Sendable
+    func threadPoolTest(req: Request) -> EventLoopFuture<String> {
+        return req.application.threadPool.runIfActive(eventLoop: req.eventLoop) {
+            sleep(5)
+            return "Hello, world"
+        }
     }
 }
