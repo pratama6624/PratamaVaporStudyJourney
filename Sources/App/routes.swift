@@ -166,6 +166,9 @@ func routes(_ app: Application) throws {
     // Route Controller ELF Register
     try app.register(collection: EventLoopController())
     
+    // Route Controller Blocking Bound Controller
+    try app.register(collection: BlockingBoundController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)
