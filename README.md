@@ -120,7 +120,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [ ] Blocking
         [√] Blocking Event Loop Test -> Sleep for 5 second
         [√] Thread Pool
-        [ ] Blocking ( I/O Bound )
+        [√] Blocking ( I/O Bound )
+            [√] Add Unique Constraint -> Email
         [ ] Blocking ( CPU Bound )
 ```
 ```bash

@@ -42,6 +42,7 @@ public func configure(_ app: Application) async throws {
     
     // User
     app.migrations.add(CreateUser())
+    app.migrations.add(AddUniqueConstraintUsers())
     
     // Auto migration
     try await app.autoMigrate()
