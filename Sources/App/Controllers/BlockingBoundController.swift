@@ -7,6 +7,7 @@
 
 import Vapor
 import Fluent
+import PDFKit
 
 struct BlockingBoundController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
@@ -14,6 +15,9 @@ struct BlockingBoundController: RouteCollection {
         
         blockingBound.post("csv", use: self.uploadCSV)
             .withMetadata("Upload csv", "Blocking Bound Controller")
+        
+        blockingBound.post("generatepdf", use: self.generatePDF(req:))
+            .withMetadata("Make pdf from csv", "Blocking Bound Controller")
     }
     
     // POST Request /blockingboundupload/csv
@@ -58,5 +62,47 @@ struct BlockingBoundController: RouteCollection {
         }
         
         return users
+    }
+    
+    // CSV -> PDF
+    @Sendable
+    func generatePDF(req: Request) async throws -> Response {
+        let file: File
+        
+        do {
+            file = try req.content.get(File.self, at: "file")
+        } catch {
+            throw Abort(.unsupportedMediaType)
+        }
+        
+        let users = try parseCSV(file: file)
+        
+        let pdfData = try await createPDF(users: users)
+        
+        let headers = HTTPHeaders([
+            ("Content-Type", "application/pdf"),
+            ("Content-Disposition", "attachment; filename=\"users.pdf\"")
+        ])
+        
+        return Response(status: .ok, headers: headers, body: .init(data: pdfData))
+    }
+     
+    func createPDF(users: [UserIOBound]) async throws -> Data {
+        let pageBounds = CGRect(x: 0, y: 0, width: 612, height: 792)
+
+        let pdfData = await MainActor.run {
+            let textView = NSTextView(frame: pageBounds)
+            textView.font = NSFont.systemFont(ofSize: 16)
+
+            var content = ""
+            for user in users {
+                content += "\(user.name) - \(user.email)\n"
+            }
+            textView.string = content
+
+            return textView.dataWithPDF(inside: textView.bounds)
+        }
+        
+        return pdfData
     }
 }

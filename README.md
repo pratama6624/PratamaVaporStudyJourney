@@ -122,6 +122,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
         [√] Thread Pool
         [√] Blocking ( I/O Bound )
             [√] Add Unique Constraint -> Email
+            [√] CSV -> PDF File
         [ ] Blocking ( CPU Bound )
 ```
 ```bash
