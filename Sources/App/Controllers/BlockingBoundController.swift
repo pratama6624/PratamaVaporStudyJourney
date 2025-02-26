@@ -103,6 +103,17 @@ struct BlockingBoundController: RouteCollection {
             return textView.dataWithPDF(inside: textView.bounds)
         }
         
+        let savePath = DirectoryConfiguration.detect().publicDirectory + "File/Pdf/"
+        
+        let fileManager = FileManager.default
+        if !fileManager.fileExists(atPath: savePath) {
+            try fileManager.createDirectory(atPath: savePath, withIntermediateDirectories: true, attributes: nil)
+        }
+        
+        let filePath = savePath + "users.pdf"
+        
+        try pdfData.write(to: URL(fileURLWithPath: filePath))
+        
         return pdfData
     }
 }
