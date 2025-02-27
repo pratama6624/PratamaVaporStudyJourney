@@ -27,6 +27,11 @@ struct BlockingBoundController: RouteCollection {
         // Test cpu with bound -> blocking event loop
         blockingBound.post("cpuwithboundtest", use: self.createUserPostgre)
             .withMetadata("CPU bound test", "Blocking Bound Controller")
+        
+        // POST Request /blockingboundupload/cpuwithoutboundtest
+        // Test cpu without bound -> non blocking event loop
+        blockingBound.post("cpuwithoutboundtest", use: self.createUserPostgreNonBlocking)
+            .withMetadata("CPU bound test", "Blocking Bound Controller")
     }
     
     // POST Request /blockingboundupload/csv
@@ -128,7 +133,7 @@ struct BlockingBoundController: RouteCollection {
     
     // CPU Bound
     // POST Request
-    // CPU Blocking bound
+    // CPU Blocking Bound
     @Sendable
     func createUserPostgre(req: Request) throws -> EventLoopFuture<UserPostgreDTO> {
         let userpostgre = try req.content.decode(UserPostgre.self)
@@ -138,5 +143,23 @@ struct BlockingBoundController: RouteCollection {
         userpostgre.password = try Bcrypt.hash(userpostgre.password)
         
         return userpostgre.save(on: req.db).map { userpostgre.toUserPostgreeDTO() }
+    }
+    
+    // CPU Bound
+    // POST Request
+    // CPU Non Blocking Bound
+    @Sendable
+    func createUserPostgreNonBlocking(req: Request) throws -> EventLoopFuture<UserPostgreDTO> {
+        let userpostgre = try req.content.decode(UserPostgre.self)
+        userpostgre.created_at = Date()
+        
+        return req.eventLoop.future().flatMapThrowing {
+            try Bcrypt.hash(userpostgre.password)
+        }.flatMap { userHash in
+            userpostgre.password = userHash
+            return userpostgre.save(on: req.db).map {
+                userpostgre.toUserPostgreeDTO()
+            }
+        }
     }
 }
