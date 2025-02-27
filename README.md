@@ -125,6 +125,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
             [√] CSV -> PDF File
             [√] CSV -> PDF File (Download File to Local)
         [ ] Blocking ( CPU Bound )
+            [√] Blocking ( CPU With Bound Test )
 ```
 ```bash
     Logging

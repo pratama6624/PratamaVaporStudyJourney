@@ -13,11 +13,20 @@ struct BlockingBoundController: RouteCollection {
     func boot(routes: RoutesBuilder) throws {
         let blockingBound = routes.grouped("blockingboundupload")
         
+        // POST Request /blockingboundupload/csv
+        // Save CSV data to database (Postgre Sql)
         blockingBound.post("csv", use: self.uploadCSV)
             .withMetadata("Upload csv", "Blocking Bound Controller")
         
-        blockingBound.post("generatepdf", use: self.generatePDF(req:))
+        // POST Request /blockingboundupload/generatepdf
+        // Generate PDF file from CSV file
+        blockingBound.post("generatepdf", use: self.generatePDF)
             .withMetadata("Make pdf from csv", "Blocking Bound Controller")
+        
+        // POST Request /blockingboundupload/cpuwithboundtest
+        // Test cpu with bound -> blocking event loop
+        blockingBound.post("cpuwithboundtest", use: self.createUserPostgre)
+            .withMetadata("CPU bound test", "Blocking Bound Controller")
     }
     
     // POST Request /blockingboundupload/csv
@@ -115,5 +124,19 @@ struct BlockingBoundController: RouteCollection {
         try pdfData.write(to: URL(fileURLWithPath: filePath))
         
         return pdfData
+    }
+    
+    // CPU Bound
+    // POST Request
+    // CPU Blocking bound
+    @Sendable
+    func createUserPostgre(req: Request) throws -> EventLoopFuture<UserPostgreDTO> {
+        let userpostgre = try req.content.decode(UserPostgre.self)
+        userpostgre.created_at = Date()
+        
+        // Blocking Event
+        userpostgre.password = try Bcrypt.hash(userpostgre.password)
+        
+        return userpostgre.save(on: req.db).map { userpostgre.toUserPostgreeDTO() }
     }
 }
