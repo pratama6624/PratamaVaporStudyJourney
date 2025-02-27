@@ -8,7 +8,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
 
 ### Basics
 ```bash
-    Routing :
+    Routing ( All Done )
     
     [√] HTTP Method ( GET, POST, PUT, PATCH, DELETE, OPTION )
     [√] Request Path ( / )
@@ -28,12 +28,12 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Redirections
 ```
 ```bash
-    Controller :
+    Controller ( All Done )
     
     [√] Business Login & HTTP Request Handler 
 ```
 ```bash
-    Content :
+    Content ( All Done )
     
     [√] Content Encode ( Object Model -> JSON )
     [√] Content Decode ( JSON -> Object Model )
@@ -53,7 +53,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] ResponseEncodable ( AsyncResponseEncodable )
 ```
 ```bash
-    Client
+    Client ( All Done )
     
     [√] Client ( Open Weather API ) 
     [√] Client ( Visual Crossing Weather API )
@@ -67,7 +67,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Client Content ( Handle Infinite Loop )
 ```
 ```bash
-    Validation
+    Validation ( All Done )
     
     [√] Validation HRE ( Human-Readable Errors )
     [√] Validation HRE Format Response ( AbortError Vapor Default )
@@ -91,7 +91,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Validation Validators Sample 1 ( Custom Validator Model - Employee )
 ```
 ```bash
-    Async
+    Async ( All Done )
     
     [√] Async ( Await Handler Simulation await - sleep 5ns)
     [√] EventLoopFuture ( Handler Simulation await - sleep 5ns )
@@ -109,15 +109,15 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Event Loop ( Future -> When Complete Failure )
     [√] Event Loop ( Future Blocking Event Loop -> .get )
     [√] Event Loop ( Future Blocking Event Loop Safe Version of .get -> .wait )
-        -> Danger ( Bloking IO -> It will block the event loop and will make the server slow, down and even hang )
-        -> Forbidden ( It will throw an error if the end point is called because vapor forbids the use of .get & .wait in the main event loop )
-        -> Mandatory ( Keep using non blocking in Vapor )
+        [√] Danger ( Bloking IO -> Block event loop and will make the server slow, down and even hang )
+        [√] Forbidden ( Will throw an error if the end point is called because vapor forbids the use of .get & .wait in the main event loop )
+        [√] Mandatory ( Keep using non blocking in Vapor )
     [√] Even Loop ( Promise )
         [√] Promise Succeed
         [√] Promise Fail
         [√] Promise Async
     [√] Event Loop ( Hop )
-    [ ] Blocking
+    [√] Blocking
         [√] Blocking Event Loop Test -> Sleep for 5 second
         [√] Thread Pool
         [√] Blocking ( I/O Bound )
@@ -129,10 +129,19 @@ This repository is created to document my journey in learning **Vapor**, a Swift
             [√] Blocking ( CPU With Bound Test )
 ```
 ```bash
-    Logging
+    Logging ( Ongoing )
     
-    [ ]
-    [ ]
+    [√] Logging ( Configuration .info )
+        [√] Level 1 ( Trace )
+        [√] Level 2 ( Debug )
+        [√] Level 3 ( Info )
+        [√] Level 4 ( Notice )
+        [√] Level 5 ( Warning )
+        [√] Level 6 ( Error )
+        [√] Level 7 ( Critical )
+    [ ] Logging ( Console Logging )
+    [ ] Logging ( File Logging )
+    [ ] Logging ( Cloud Logging )
 ```
 ```bash
     Environment
