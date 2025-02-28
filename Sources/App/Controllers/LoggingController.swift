@@ -34,6 +34,5 @@ struct LoggingController: RouteCollection {
         return "Hello, Welcome Developer!"
     }
     
-//    KITA SAMPAI DIBAGIAN BAGAIMANA CARANYA MENYIMAPN LOGGING KE FILE
-//    DAN NANTI SETELAH INI PELAJARI JUGA CARANYA MENYIMAPN DICLOUD
+    
 }

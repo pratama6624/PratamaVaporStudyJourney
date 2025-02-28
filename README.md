@@ -140,7 +140,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
         [√] Level 6 ( Error )
         [√] Level 7 ( Critical )
     [√] Logging ( Console Logging )
-    [ ] Logging ( File Logging )
+    [√] Logging ( File Logging )
     [ ] Logging ( Cloud Logging )
 ```
 ```bash

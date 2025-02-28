@@ -1,0 +1,8 @@
+[2025-02-28 3:57:30 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-02-28 4:00:33 PM +0000] [info] GET /logging/testlevel
+[2025-02-28 4:00:33 PM +0000] [info] Test level handler called
+[2025-02-28 4:00:33 PM +0000] [info] This is a info log
+[2025-02-28 4:00:33 PM +0000] [notice] This is a notice log
+[2025-02-28 4:00:33 PM +0000] [warning] This is a warning log
+[2025-02-28 4:00:33 PM +0000] [error] This is a error log
+[2025-02-28 4:00:33 PM +0000] [critical] This is a critical log

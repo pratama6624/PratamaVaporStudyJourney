@@ -5,9 +5,34 @@ import Vapor
 
 // configures your application
 public func configure(_ app: Application) async throws {
+    // Logging
+    // File logging
+    let logFilePath = app.directory.publicDirectory + "Logs/app.log"
+    
+    // Create folder
+    let logsDirectory = URL(fileURLWithPath: app.directory.publicDirectory + "Logs")
+    if !FileManager.default.fileExists(atPath: logsDirectory.path) {
+        do {
+            try FileManager.default.createDirectory(at: logsDirectory, withIntermediateDirectories: true, attributes: nil)
+        } catch {
+            print("Error: \(error)")
+        }
+    }
+    
+    // Create file log
+    if !FileManager.default.fileExists(atPath: logFilePath) {
+        FileManager.default.createFile(atPath: logFilePath, contents: nil, attributes: nil)
+    }
+    
+    print("📁 Log file path: \(logFilePath)")
+    // Custom logging logger SwiftLog
+    let fileLogger = FileLogger(label: "vapor.fileLogger", filePath: logFilePath)
+    app.logger = Logger(label: "vapor.fileLogger", factory: { _ in fileLogger })
+    // Set log level
+    app.logger.logLevel = .info
+    
     // uncomment to serve files from /Public folder
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
-    app.logger.logLevel = .info
     
     app.routes.defaultMaxBodySize = "5mb"
     
