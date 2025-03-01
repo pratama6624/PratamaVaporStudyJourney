@@ -142,6 +142,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Logging ( Console Logging )
     [√] Logging ( File Logging )
     [ ] Logging ( Cloud Logging )
+    [√] Logging ( Aplication Logger )
 ```
 ```bash
     Environment

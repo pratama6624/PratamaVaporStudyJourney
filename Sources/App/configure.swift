@@ -5,6 +5,7 @@ import Vapor
 
 // configures your application
 public func configure(_ app: Application) async throws {
+    app.logger.info("Configuring vapor application...")
     // Logging
     // File logging
     let logFilePath = app.directory.publicDirectory + "Logs/app.log"
@@ -33,6 +34,7 @@ public func configure(_ app: Application) async throws {
     
     // uncomment to serve files from /Public folder
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
+    app.logger.info("Middleware configured")
     
     app.routes.defaultMaxBodySize = "5mb"
     
@@ -46,6 +48,7 @@ public func configure(_ app: Application) async throws {
     encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
     ContentConfiguration.global.use(encoder: encoder, for: .json)
 
+    app.logger.info("Setting up database")
     app.databases.use(DatabaseConfigurationFactory.postgres(configuration: .init(
         hostname: Environment.get("DATABASE_HOST") ?? "localhost",
         port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? SQLPostgresConfiguration.ianaPortNumber,
@@ -54,7 +57,10 @@ public func configure(_ app: Application) async throws {
         database: Environment.get("DATABASE_NAME") ?? "vapor_database",
         tls: .prefer(try .init(configuration: .clientDefault)))
     ), as: .psql)
+    app.logger.info("Database connected successfully")
 
+    app.logger.info("Setting up migrations")
+    
     // Song Migration
     app.migrations.add(CreateSong())
     
@@ -70,8 +76,13 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(CreateUser())
     app.migrations.add(AddUniqueConstraintUsers())
     
+    app.logger.info("Migrations completed successfully")
+    
     // Auto migration
     try await app.autoMigrate()
+    app.logger.info("Auto-migration completed")
     // register routes
     try routes(app)
+    app.logger.info("Routes registered successfully")
+    app.logger.info("Vapor is ready to run!")
 }
