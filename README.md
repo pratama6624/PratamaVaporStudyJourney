@@ -144,7 +144,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [ ] Logging ( Cloud Logging )
     [√] Logging ( Aplication Logger )
     [√] Logging ( Cutom Logger -> Bacground Task Event Block Console Logging )
-    [ ] Logging ( Cutom Logger -> Bacground Task Event Block File Logging )
+    [√] Logging ( Cutom Logger -> Bacground Task Event Block File Logging )
+    [ ] Logging ( Deleting app.log contents via GET req method )
 ```
 ```bash
     Environment

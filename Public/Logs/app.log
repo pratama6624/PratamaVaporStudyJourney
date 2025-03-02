@@ -59,3 +59,23 @@
 [2025-03-02 5:56:47 AM +0000] [info] Vapor is ready to run!
 [2025-03-02 5:56:47 AM +0000] [notice] Server started on http://127.0.0.1:8080
 [2025-03-02 5:57:53 AM +0000] [info] GET /logging/testcustomloggerconsolelogging
+[2025-03-02 6:07:06 AM +0000] [info] Middleware configured
+[2025-03-02 6:07:06 AM +0000] [info] Setting up database
+[2025-03-02 6:07:06 AM +0000] [info] Database connected successfully
+[2025-03-02 6:07:06 AM +0000] [info] Setting up migrations
+[2025-03-02 6:07:06 AM +0000] [info] Migrations completed successfully
+[2025-03-02 6:07:06 AM +0000] [info] Auto-migration completed
+[2025-03-02 6:07:06 AM +0000] [info] Routes registered successfully
+[2025-03-02 6:07:06 AM +0000] [info] Vapor is ready to run!
+[2025-03-02 6:08:08 AM +0000] [info] Middleware configured
+[2025-03-02 6:08:08 AM +0000] [info] Setting up database
+[2025-03-02 6:08:08 AM +0000] [info] Database connected successfully
+[2025-03-02 6:08:08 AM +0000] [info] Setting up migrations
+[2025-03-02 6:08:08 AM +0000] [info] Migrations completed successfully
+[2025-03-02 6:08:08 AM +0000] [info] Auto-migration completed
+[2025-03-02 6:08:08 AM +0000] [info] Routes registered successfully
+[2025-03-02 6:08:08 AM +0000] [info] Vapor is ready to run!
+[2025-03-02 6:08:08 AM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-02 6:08:16 AM +0000] [info] GET /logging/testcustomloggerfilelogging
+[2025-03-02 6:08:16 AM +0000] [info] Background task started at 2025-03-02 6:08:16 AM +0000
+[2025-03-02 6:08:21 AM +0000] [info] Background task end at 2025-03-02 6:08:21 AM +0000
