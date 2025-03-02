@@ -31,6 +31,12 @@ struct LoggingController: RouteCollection {
         // Without validation
         logging.get("deletelogfile", use: self.deleteLogFile)
             .withMetadata("Test delete log file", "Logging Controller")
+        
+        // GET Request /logging/deletelogfilewithvalidation?username=pratama&password=scyoung6624
+        // Delete log file with this request
+        // With validation
+        logging.get("deletelogfilewithvalidation", use: self.deleteLogFileWithValidation)
+            .withMetadata("Test delete log file", "Logging Controller")
     }
     
     // Logging level test
@@ -104,5 +110,24 @@ struct LoggingController: RouteCollection {
             req.logger.warning("Log file not found")
             return Response(status: .ok, body: .init(string: "Log file not found"))
         }
+    }
+    
+    // Delete app.log by this
+    @Sendable
+    func deleteLogFileWithValidation(req: Request) throws -> Response {
+        let usernameKey = "pratama"
+        let passwordKey = "scyoung6624"
+        
+        // Username validation
+        guard let username = req.query[String.self, at: "username"], username == usernameKey else {
+            throw Abort(.badRequest, reason: "wrong username")
+        }
+        
+        // Password validation
+        guard let password = req.query[String.self, at: "password"], password == passwordKey else {
+            throw Abort(.badRequest, reason: "wrong password")
+        }
+        
+        return try deleteLogFile(req: req)
     }
 }
