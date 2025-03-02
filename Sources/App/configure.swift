@@ -30,7 +30,7 @@ public func configure(_ app: Application) async throws {
     let fileLogger = FileLogger(label: "vapor.fileLogger", filePath: logFilePath)
     app.logger = Logger(label: "vapor.fileLogger", factory: { _ in fileLogger })
     // Set log level
-    app.logger.logLevel = .info
+    app.logger.logLevel = .trace
     
     // uncomment to serve files from /Public folder
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
