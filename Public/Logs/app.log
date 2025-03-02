@@ -15,3 +15,47 @@
 [2025-03-01 4:39:42 PM +0000] [info] Routes registered successfully
 [2025-03-01 4:39:42 PM +0000] [info] Vapor is ready to run!
 [2025-03-01 4:39:42 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-02 5:37:49 AM +0000] [info] Middleware configured
+[2025-03-02 5:37:49 AM +0000] [info] Setting up database
+[2025-03-02 5:37:49 AM +0000] [info] Database connected successfully
+[2025-03-02 5:37:49 AM +0000] [info] Setting up migrations
+[2025-03-02 5:37:49 AM +0000] [info] Migrations completed successfully
+[2025-03-02 5:37:49 AM +0000] [info] Auto-migration completed
+[2025-03-02 5:37:49 AM +0000] [info] Routes registered successfully
+[2025-03-02 5:37:49 AM +0000] [info] Vapor is ready to run!
+[2025-03-02 5:38:01 AM +0000] [info] Middleware configured
+[2025-03-02 5:38:01 AM +0000] [info] Setting up database
+[2025-03-02 5:38:01 AM +0000] [info] Database connected successfully
+[2025-03-02 5:38:01 AM +0000] [info] Setting up migrations
+[2025-03-02 5:38:01 AM +0000] [info] Migrations completed successfully
+[2025-03-02 5:38:01 AM +0000] [info] Auto-migration completed
+[2025-03-02 5:38:01 AM +0000] [info] Routes registered successfully
+[2025-03-02 5:38:01 AM +0000] [info] Vapor is ready to run!
+[2025-03-02 5:38:01 AM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-02 5:38:11 AM +0000] [info] GET /logging/testcustomlogger
+[2025-03-02 5:56:03 AM +0000] [info] Middleware configured
+[2025-03-02 5:56:03 AM +0000] [info] Setting up database
+[2025-03-02 5:56:03 AM +0000] [info] Database connected successfully
+[2025-03-02 5:56:03 AM +0000] [info] Setting up migrations
+[2025-03-02 5:56:03 AM +0000] [info] Migrations completed successfully
+[2025-03-02 5:56:03 AM +0000] [info] Auto-migration completed
+[2025-03-02 5:56:03 AM +0000] [info] Routes registered successfully
+[2025-03-02 5:56:03 AM +0000] [info] Vapor is ready to run!
+[2025-03-02 5:56:32 AM +0000] [info] Middleware configured
+[2025-03-02 5:56:32 AM +0000] [info] Setting up database
+[2025-03-02 5:56:32 AM +0000] [info] Database connected successfully
+[2025-03-02 5:56:32 AM +0000] [info] Setting up migrations
+[2025-03-02 5:56:32 AM +0000] [info] Migrations completed successfully
+[2025-03-02 5:56:32 AM +0000] [info] Auto-migration completed
+[2025-03-02 5:56:32 AM +0000] [info] Routes registered successfully
+[2025-03-02 5:56:32 AM +0000] [info] Vapor is ready to run!
+[2025-03-02 5:56:47 AM +0000] [info] Middleware configured
+[2025-03-02 5:56:47 AM +0000] [info] Setting up database
+[2025-03-02 5:56:47 AM +0000] [info] Database connected successfully
+[2025-03-02 5:56:47 AM +0000] [info] Setting up migrations
+[2025-03-02 5:56:47 AM +0000] [info] Migrations completed successfully
+[2025-03-02 5:56:47 AM +0000] [info] Auto-migration completed
+[2025-03-02 5:56:47 AM +0000] [info] Routes registered successfully
+[2025-03-02 5:56:47 AM +0000] [info] Vapor is ready to run!
+[2025-03-02 5:56:47 AM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-02 5:57:53 AM +0000] [info] GET /logging/testcustomloggerconsolelogging

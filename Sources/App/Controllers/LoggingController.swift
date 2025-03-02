@@ -15,6 +15,14 @@ struct LoggingController: RouteCollection {
         // GET Request /logging/testlevel
         logging.get("testlevel", use: self.testLevel)
             .withMetadata("Test logging level", "Logging Controller")
+        
+        // GET Request /logging/testcustomloggerconsolelogging
+        // Default console terminal only
+        logging.get("testcustomloggerconsolelogging", use: self.testCustomLogger)
+            .withMetadata("Test custom logger console", "Logging Controller")
+        
+        // GET Request /logging/testcustomloggerconsolelogging
+        // Default console terminal only
     }
     
     // Logging level test
@@ -34,5 +42,20 @@ struct LoggingController: RouteCollection {
         return "Hello, Welcome Developer!"
     }
     
-    
+    // Cumtom Logger -> Default console logging
+    @Sendable
+    func testCustomLogger(re: Request) -> String {
+        let logger = Logger(label: "dev.logger.background")
+        
+        let startTime = Date()
+        logger.info("Background task started at \(startTime)")
+        
+        sleep(5)
+        
+        let endTime = Date()
+        logger.info("Background task end at \(endTime)")
+        
+        let duration = endTime.timeIntervalSince(startTime)
+        return "Task duration \(duration) -> See details in terminal console"
+    }
 }
