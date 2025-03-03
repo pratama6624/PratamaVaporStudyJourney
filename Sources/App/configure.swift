@@ -2,10 +2,18 @@ import NIOSSL
 import Fluent
 import FluentPostgresDriver
 import Vapor
+import DotEnv
 
 // configures your application
 public func configure(_ app: Application) async throws {
+    // Load .env
+    try DotEnv.load(path: app.directory.workingDirectory + ".env")
+    
     app.logger.info("Configuring vapor application...")
+    
+    // Set log level
+    app.logger.logLevel = .trace
+    
     // Logging
     // File logging
     let logFilePath = app.directory.publicDirectory + "Logs/app.log"
@@ -29,8 +37,6 @@ public func configure(_ app: Application) async throws {
     // Custom logging logger SwiftLog
     let fileLogger = FileLogger(label: "vapor.fileLogger", filePath: logFilePath)
     app.logger = Logger(label: "vapor.fileLogger", factory: { _ in fileLogger })
-    // Set log level
-    app.logger.logLevel = .trace
     
     // uncomment to serve files from /Public folder
     app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))

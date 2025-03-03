@@ -148,6 +148,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Logging ( Deleting app.log by GET without validation )
     [√] Logging ( Deleting app.log by GET with validation )
     [√] Logging ( Changing Log Level -> Trace )
+    [√] Logging ( Configuration .env )
+    [ ] Logging ( Custom Handler )
 ```
 ```bash
     Environment
