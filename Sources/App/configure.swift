@@ -16,6 +16,7 @@ public func configure(_ app: Application) async throws {
     
     // Logging
     // File logging
+    // Custom Handler Logging Without LoggingSystem.bootstrap
     let logFilePath = app.directory.publicDirectory + "Logs/app.log"
     
     // Create folder
