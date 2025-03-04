@@ -129,7 +129,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
             [√] Blocking ( CPU With Bound Test )
 ```
 ```bash
-    Logging ( Ongoing )
+    Logging ( All Done )
     
     [√] Logging ( Configuration .info )
         [√] Level 1 ( Trace )
@@ -154,8 +154,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
 ```bash
     Environment
     
-    [ ]
-    [ ]
+    [√] Environment ( Production & Development Mode )
+    [ ] Environment ( Changing Environment Mode )
 ```
 ```bash
     Errors

@@ -12,7 +12,7 @@ public func configure(_ app: Application) async throws {
     app.logger.info("Configuring vapor application...")
     
     // Set log level
-    app.logger.logLevel = .trace
+//    app.logger.logLevel = .trace
     
     // Logging
     // File logging
@@ -33,6 +33,23 @@ public func configure(_ app: Application) async throws {
     if !FileManager.default.fileExists(atPath: logFilePath) {
         FileManager.default.createFile(atPath: logFilePath, contents: nil, attributes: nil)
     }
+    
+    // Test cek environment
+    switch app.environment {
+    case .production:
+        app.logger.info("Running in Production mode")
+        app.logger.logLevel = .info
+    case .development:
+        app.logger.info("Running in Development mode")
+        app.logger.logLevel = .trace
+    default:
+        app.logger.info("Running in Unknown mode")
+    }
+    
+    // Get log level
+    print(app.logger.info("Current log level: \(app.logger.logLevel)"))
+    // Get log enviroment
+    print(app.logger.info("Running in \(app.environment.name) mode"))
     
     print("📁 Log file path: \(logFilePath)")
     // Custom logging logger SwiftLog
