@@ -168,7 +168,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Errors ( Abort Custom Status Code )
     [√] Errors ( DebuggableError )
     [√] Errors ( Error Middleware )
-    [ ] Errors
+    [√] Errors ( DebuggableError Advance )
 ```
 
 ---

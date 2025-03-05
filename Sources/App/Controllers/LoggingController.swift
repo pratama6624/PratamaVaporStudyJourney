@@ -7,6 +7,20 @@
 
 import Vapor
 
+struct DeleteLogError: DebuggableError {
+    var identifier: String
+    var reason: String
+    var source: ErrorSource?
+    var suggestedFixes: [String]
+    
+    init(identifier: String, reason: String, suggestedFixes: [String] = []) {
+        self.identifier = identifier
+        self.reason = reason
+        self.suggestedFixes = suggestedFixes
+        self.source = .capture()
+    }
+}
+
 // Logging
 struct LoggingController: RouteCollection {
     func boot(routes: any RoutesBuilder) throws {
@@ -120,12 +134,20 @@ struct LoggingController: RouteCollection {
         
         // Username validation
         guard let username = req.query[String.self, at: "username"], username == usernameKey else {
-            throw Abort(.badRequest, reason: "wrong username")
+            throw DeleteLogError(
+                identifier: "DeleteLogError",
+                reason: "An error occurred while deleting log data",
+                suggestedFixes: ["Double check username", "Double check password"]
+                )
         }
         
         // Password validation
         guard let password = req.query[String.self, at: "password"], password == passwordKey else {
-            throw Abort(.badRequest, reason: "wrong password")
+            throw DeleteLogError(
+                identifier: "DeleteLogError",
+                reason: "An error occurred while deleting log data",
+                suggestedFixes: ["Double check username", "Double check password"]
+                )
         }
         
         return try deleteLogFile(req: req)
