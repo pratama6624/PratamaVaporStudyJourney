@@ -51,6 +51,9 @@ public func configure(_ app: Application) async throws {
     case .development:
         app.logger.info("Running in Development mode")
         app.logger.logLevel = .trace
+    case .staging:
+        app.logger.info("Running in Staging mode")
+        app.logger.logLevel = .debug
     default:
         app.logger.info("Running in Unknown mode")
     }

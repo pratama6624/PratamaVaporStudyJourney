@@ -158,7 +158,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     [√] Environment ( Changing Environment Mode )
     [√] Environment ( Process Variables )
     [√] Environment ( .env DotEnv )
-    [ ] Environment ( Custom Environments )
+    [√] Environment ( Custom Environments .staging )
 ```
 ```bash
     Errors
