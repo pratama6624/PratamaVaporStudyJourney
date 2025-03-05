@@ -38,6 +38,11 @@ public func configure(_ app: Application) async throws {
     let openAIKey = Environment.get("OPENAI_API_KEY") ?? "No API Key found"
     app.logger.info("Open AI Key: \(openAIKey)")
     
+    let foo = Environment.get("FOO") ?? "foo"
+    let bar = Environment.get("BAR") ?? "bar"
+    let foobar = Environment.get("FOOBAR") ?? "foobar"
+    app.logger.info("\(foo), \(bar), \(foobar)")
+    
     // Test cek environment
     switch app.environment {
     case .production:
