@@ -163,8 +163,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
 ```bash
     Errors
     
-    [ ]
-    [ ]
+    [√] Errors ( Throwing an Error )
+    [ ] Errors ( Abort Event Loop Future )
 ```
 
 ---

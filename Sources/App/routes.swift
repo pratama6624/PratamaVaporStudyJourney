@@ -172,6 +172,9 @@ func routes(_ app: Application) throws {
     // Route Controller Logging
     try app.register(collection: LoggingController())
     
+    // Route Controller Error
+    try app.register(collection: ErrorController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)
