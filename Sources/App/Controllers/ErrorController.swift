@@ -31,6 +31,10 @@ struct ErrorController: RouteCollection {
         // Debuggable Error (custom error)
         errorRoutes.get("debuggableerror", use: self.debuggableError)
             .withMetadata("test debuggable error", "Error Controller")
+        
+        // Error Middleware
+        errorRoutes.grouped(CustomErrorMiddleware()).get("errormiddleware", use: self.errorMiddleware)
+            .withMetadata("test middleware error", "Error Controller")
     }
     
     // GET Request -> /error/throwinganerror
@@ -55,5 +59,11 @@ struct ErrorController: RouteCollection {
     @Sendable
     func debuggableError(req: Request) throws -> String {
         throw CustomError(identifier: "Custom Error", reason: "This is a custom error")
+    }
+    
+    // GET Request -> /error/errormiddleware
+    @Sendable
+    func errorMiddleware(req: Request) throws -> EventLoopFuture<String> {
+        req.eventLoop.makeFailedFuture(Abort(.badRequest, reason: "Something went wrong"))
     }
 }
