@@ -34,6 +34,10 @@ public func configure(_ app: Application) async throws {
         FileManager.default.createFile(atPath: logFilePath, contents: nil, attributes: nil)
     }
     
+    // Test get api key from env
+    let openAIKey = Environment.get("OPENAI_API_KEY") ?? "No API Key found"
+    app.logger.info("Open AI Key: \(openAIKey)")
+    
     // Test cek environment
     switch app.environment {
     case .production:
