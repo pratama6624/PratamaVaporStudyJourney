@@ -7,6 +7,11 @@
 
 import Vapor
 
+struct CustomError: DebuggableError {
+    var identifier: String
+    var reason: String
+}
+
 struct ErrorController: RouteCollection {
     func boot(routes: any RoutesBuilder) throws {
         let errorRoutes = routes.grouped("error")
@@ -22,6 +27,10 @@ struct ErrorController: RouteCollection {
         // Abort for Custom Status Code
         errorRoutes.get("unauthorized", use: self.unauthorized)
             .withMetadata("test abort for custom status code error", "Error Controller")
+        
+        // Debuggable Error (custom error)
+        errorRoutes.get("debuggableerror", use: self.debuggableError)
+            .withMetadata("test debuggable error", "Error Controller")
     }
     
     // GET Request -> /error/throwinganerror
@@ -40,5 +49,11 @@ struct ErrorController: RouteCollection {
     @Sendable
     func unauthorized(req: Request) throws -> String {
         throw Abort(.unauthorized, reason: "Unauthorized")
+    }
+    
+    // GET Request -> /error/debuggableerror
+    @Sendable
+    func debuggableError(req: Request) throws -> String {
+        throw CustomError(identifier: "Custom Error", reason: "This is a custom error")
     }
 }
