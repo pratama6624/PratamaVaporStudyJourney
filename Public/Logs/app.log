@@ -1,1 +1,257 @@
 [2025-03-04 5:05:02 PM +0000] [info] Log file deleted successfully
+[2025-03-05 12:57:11 PM +0000] [info] Middleware configured
+[2025-03-05 12:57:11 PM +0000] [info] Setting up database
+[2025-03-05 12:57:11 PM +0000] [info] Database connected successfully
+[2025-03-05 12:57:11 PM +0000] [info] Setting up migrations
+[2025-03-05 12:57:11 PM +0000] [info] Migrations completed successfully
+[2025-03-05 12:57:11 PM +0000] [info] Auto-migration completed
+[2025-03-05 12:57:11 PM +0000] [info] Routes registered successfully
+[2025-03-05 12:57:11 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 12:57:11 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 2:39:30 PM +0000] [info] Middleware configured
+[2025-03-05 2:39:30 PM +0000] [info] Setting up database
+[2025-03-05 2:39:30 PM +0000] [info] Database connected successfully
+[2025-03-05 2:39:30 PM +0000] [info] Setting up migrations
+[2025-03-05 2:39:30 PM +0000] [info] Migrations completed successfully
+[2025-03-05 2:39:31 PM +0000] [info] Auto-migration completed
+[2025-03-05 2:39:31 PM +0000] [info] Routes registered successfully
+[2025-03-05 2:39:31 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 2:39:31 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 2:46:05 PM +0000] [info] Middleware configured
+[2025-03-05 2:46:05 PM +0000] [info] Setting up database
+[2025-03-05 2:46:05 PM +0000] [info] Database connected successfully
+[2025-03-05 2:46:05 PM +0000] [info] Setting up migrations
+[2025-03-05 2:46:05 PM +0000] [info] Migrations completed successfully
+[2025-03-05 2:46:05 PM +0000] [info] Auto-migration completed
+[2025-03-05 2:46:05 PM +0000] [info] Routes registered successfully
+[2025-03-05 2:46:05 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 2:46:05 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 2:46:32 PM +0000] [info] Middleware configured
+[2025-03-05 2:46:32 PM +0000] [info] Setting up database
+[2025-03-05 2:46:32 PM +0000] [info] Database connected successfully
+[2025-03-05 2:46:32 PM +0000] [info] Setting up migrations
+[2025-03-05 2:46:32 PM +0000] [info] Migrations completed successfully
+[2025-03-05 2:46:32 PM +0000] [info] Auto-migration completed
+[2025-03-05 2:46:32 PM +0000] [info] Routes registered successfully
+[2025-03-05 2:46:32 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 2:46:32 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 2:55:30 PM +0000] [info] Middleware configured
+[2025-03-05 2:55:30 PM +0000] [info] Setting up database
+[2025-03-05 2:55:30 PM +0000] [info] Database connected successfully
+[2025-03-05 2:55:30 PM +0000] [info] Setting up migrations
+[2025-03-05 2:55:30 PM +0000] [info] Migrations completed successfully
+[2025-03-05 2:55:30 PM +0000] [info] Auto-migration completed
+[2025-03-05 2:55:30 PM +0000] [info] Routes registered successfully
+[2025-03-05 2:55:30 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 2:55:30 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 3:19:25 PM +0000] [info] Middleware configured
+[2025-03-05 3:19:25 PM +0000] [info] Setting up database
+[2025-03-05 3:19:25 PM +0000] [info] Database connected successfully
+[2025-03-05 3:19:25 PM +0000] [info] Setting up migrations
+[2025-03-05 3:19:25 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:19:25 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:19:25 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:19:25 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:20:32 PM +0000] [info] Middleware configured
+[2025-03-05 3:20:32 PM +0000] [info] Setting up database
+[2025-03-05 3:20:32 PM +0000] [info] Database connected successfully
+[2025-03-05 3:20:32 PM +0000] [info] Setting up migrations
+[2025-03-05 3:20:32 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:20:32 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:20:32 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:20:32 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:21:23 PM +0000] [info] Middleware configured
+[2025-03-05 3:21:23 PM +0000] [info] Setting up database
+[2025-03-05 3:21:23 PM +0000] [info] Database connected successfully
+[2025-03-05 3:21:23 PM +0000] [info] Setting up migrations
+[2025-03-05 3:21:23 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:21:23 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:21:23 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:21:23 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:21:34 PM +0000] [info] Middleware configured
+[2025-03-05 3:21:34 PM +0000] [info] Setting up database
+[2025-03-05 3:21:34 PM +0000] [info] Database connected successfully
+[2025-03-05 3:21:34 PM +0000] [info] Setting up migrations
+[2025-03-05 3:21:34 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:21:34 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:21:34 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:21:34 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:21:34 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 3:23:33 PM +0000] [info] GET /error/throwinganerror
+[2025-03-05 3:23:33 PM +0000] [warning] Abort.500: Something went wrong!
+[2025-03-05 3:34:03 PM +0000] [info] Middleware configured
+[2025-03-05 3:34:03 PM +0000] [info] Setting up database
+[2025-03-05 3:34:03 PM +0000] [info] Database connected successfully
+[2025-03-05 3:34:03 PM +0000] [info] Setting up migrations
+[2025-03-05 3:34:03 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:34:03 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:34:03 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:34:03 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:35:05 PM +0000] [info] Middleware configured
+[2025-03-05 3:35:05 PM +0000] [info] Setting up database
+[2025-03-05 3:35:05 PM +0000] [info] Database connected successfully
+[2025-03-05 3:35:05 PM +0000] [info] Setting up migrations
+[2025-03-05 3:35:05 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:35:05 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:35:05 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:35:05 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:35:05 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 3:35:24 PM +0000] [info] GET /error/eventloopfutureerror
+[2025-03-05 3:35:24 PM +0000] [warning] Abort.400: Invalid Request
+[2025-03-05 3:36:01 PM +0000] [info] GET /error/eventloopfutureerror
+[2025-03-05 3:36:01 PM +0000] [warning] Abort.400: Invalid Request
+[2025-03-05 3:41:19 PM +0000] [info] Middleware configured
+[2025-03-05 3:41:19 PM +0000] [info] Setting up database
+[2025-03-05 3:41:19 PM +0000] [info] Database connected successfully
+[2025-03-05 3:41:19 PM +0000] [info] Setting up migrations
+[2025-03-05 3:41:19 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:41:19 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:41:19 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:41:19 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:41:19 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 3:41:28 PM +0000] [info] Middleware configured
+[2025-03-05 3:41:28 PM +0000] [info] Setting up database
+[2025-03-05 3:41:28 PM +0000] [info] Database connected successfully
+[2025-03-05 3:41:28 PM +0000] [info] Setting up migrations
+[2025-03-05 3:41:28 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:41:28 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:41:28 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:41:28 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:43:39 PM +0000] [info] Middleware configured
+[2025-03-05 3:43:39 PM +0000] [info] Setting up database
+[2025-03-05 3:43:39 PM +0000] [info] Database connected successfully
+[2025-03-05 3:43:39 PM +0000] [info] Setting up migrations
+[2025-03-05 3:43:39 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:43:39 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:43:39 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:43:39 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:43:39 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 3:44:04 PM +0000] [info] GET /error/authorized
+[2025-03-05 3:44:19 PM +0000] [info] GET /error/unauthorized
+[2025-03-05 3:44:19 PM +0000] [warning] Abort.401: Unauthorized
+[2025-03-05 3:55:56 PM +0000] [info] Middleware configured
+[2025-03-05 3:55:56 PM +0000] [info] Setting up database
+[2025-03-05 3:55:56 PM +0000] [info] Database connected successfully
+[2025-03-05 3:55:56 PM +0000] [info] Setting up migrations
+[2025-03-05 3:55:56 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:55:57 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:55:57 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:55:57 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:56:28 PM +0000] [info] Middleware configured
+[2025-03-05 3:56:28 PM +0000] [info] Setting up database
+[2025-03-05 3:56:28 PM +0000] [info] Database connected successfully
+[2025-03-05 3:56:28 PM +0000] [info] Setting up migrations
+[2025-03-05 3:56:28 PM +0000] [info] Migrations completed successfully
+[2025-03-05 3:56:28 PM +0000] [info] Auto-migration completed
+[2025-03-05 3:56:28 PM +0000] [info] Routes registered successfully
+[2025-03-05 3:56:28 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 3:56:28 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 3:56:49 PM +0000] [info] GET /error/debuggableerror
+[2025-03-05 3:56:49 PM +0000] [warning] CustomError.Custom Error: This is a custom error
+[2025-03-05 4:48:04 PM +0000] [info] Middleware configured
+[2025-03-05 4:48:04 PM +0000] [info] Setting up database
+[2025-03-05 4:48:04 PM +0000] [info] Database connected successfully
+[2025-03-05 4:48:04 PM +0000] [info] Setting up migrations
+[2025-03-05 4:48:04 PM +0000] [info] Migrations completed successfully
+[2025-03-05 4:48:04 PM +0000] [info] Auto-migration completed
+[2025-03-05 4:48:04 PM +0000] [info] Routes registered successfully
+[2025-03-05 4:48:04 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 4:48:42 PM +0000] [info] Middleware configured
+[2025-03-05 4:48:42 PM +0000] [info] Setting up database
+[2025-03-05 4:48:42 PM +0000] [info] Database connected successfully
+[2025-03-05 4:48:42 PM +0000] [info] Setting up migrations
+[2025-03-05 4:48:42 PM +0000] [info] Migrations completed successfully
+[2025-03-05 4:48:42 PM +0000] [info] Auto-migration completed
+[2025-03-05 4:48:42 PM +0000] [info] Routes registered successfully
+[2025-03-05 4:48:42 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 4:48:42 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 4:48:44 PM +0000] [info] GET /error/errormiddleware
+[2025-03-05 10:01:49 PM +0000] [info] Middleware configured
+[2025-03-05 10:01:49 PM +0000] [info] Setting up database
+[2025-03-05 10:01:49 PM +0000] [info] Database connected successfully
+[2025-03-05 10:01:49 PM +0000] [info] Setting up migrations
+[2025-03-05 10:01:49 PM +0000] [info] Migrations completed successfully
+[2025-03-05 10:01:49 PM +0000] [info] Auto-migration completed
+[2025-03-05 10:01:49 PM +0000] [info] Routes registered successfully
+[2025-03-05 10:01:49 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 10:01:49 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 10:02:26 PM +0000] [info] GET /logging/deletelogfilewithvalidation
+[2025-03-05 10:02:26 PM +0000] [warning] Abort.400: wrong password
+[2025-03-05 10:03:02 PM +0000] [info] Middleware configured
+[2025-03-05 10:03:02 PM +0000] [info] Setting up database
+[2025-03-05 10:03:02 PM +0000] [info] Database connected successfully
+[2025-03-05 10:03:02 PM +0000] [info] Setting up migrations
+[2025-03-05 10:03:02 PM +0000] [info] Migrations completed successfully
+[2025-03-05 10:03:02 PM +0000] [info] Auto-migration completed
+[2025-03-05 10:03:02 PM +0000] [info] Routes registered successfully
+[2025-03-05 10:03:02 PM +0000] [info] Vapor is ready to run!
+[2025-03-05 10:03:02 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-05 10:03:07 PM +0000] [info] GET /logging/deletelogfilewithvalidation
+[2025-03-05 10:03:07 PM +0000] [warning] DeleteLogError.DeleteLogError: An error occurred while deleting log data [Suggested fixes: Double check username Double check password]
+[2025-03-06 4:44:26 PM +0000] [info] Middleware configured
+[2025-03-06 4:44:26 PM +0000] [info] Setting up database
+[2025-03-06 4:44:26 PM +0000] [info] Database connected successfully
+[2025-03-06 4:44:26 PM +0000] [info] Setting up migrations
+[2025-03-06 4:44:26 PM +0000] [info] Migrations completed successfully
+[2025-03-06 4:44:26 PM +0000] [info] Auto-migration completed
+[2025-03-06 4:44:26 PM +0000] [info] Routes registered successfully
+[2025-03-06 4:44:26 PM +0000] [info] Vapor is ready to run!
+[2025-03-06 4:44:26 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-06 4:44:29 PM +0000] [info] GET /error/errormiddleware
+[2025-03-06 4:45:35 PM +0000] [info] GET /error/errormiddleware
+[2025-03-06 5:05:14 PM +0000] [info] Middleware configured
+[2025-03-06 5:05:14 PM +0000] [info] Setting up database
+[2025-03-06 5:05:14 PM +0000] [info] Database connected successfully
+[2025-03-06 5:05:14 PM +0000] [info] Setting up migrations
+[2025-03-06 5:05:14 PM +0000] [info] Migrations completed successfully
+[2025-03-06 5:05:14 PM +0000] [info] Auto-migration completed
+[2025-03-06 5:05:14 PM +0000] [info] Routes registered successfully
+[2025-03-06 5:05:14 PM +0000] [info] Vapor is ready to run!
+[2025-03-06 5:06:56 PM +0000] [info] Middleware configured
+[2025-03-06 5:06:56 PM +0000] [info] Setting up database
+[2025-03-06 5:06:56 PM +0000] [info] Database connected successfully
+[2025-03-06 5:06:56 PM +0000] [info] Setting up migrations
+[2025-03-06 5:06:56 PM +0000] [info] Migrations completed successfully
+[2025-03-06 5:06:56 PM +0000] [info] Auto-migration completed
+[2025-03-06 5:06:56 PM +0000] [info] Routes registered successfully
+[2025-03-06 5:06:56 PM +0000] [info] Vapor is ready to run!
+[2025-03-06 5:06:56 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-06 5:06:59 PM +0000] [info] GET /error/errormiddleware
+[2025-03-06 5:07:18 PM +0000] [info] GET /error/errormiddlewareadvance
+[2025-03-06 5:07:39 PM +0000] [info] Middleware configured
+[2025-03-06 5:07:39 PM +0000] [info] Setting up database
+[2025-03-06 5:07:39 PM +0000] [info] Database connected successfully
+[2025-03-06 5:07:39 PM +0000] [info] Setting up migrations
+[2025-03-06 5:07:39 PM +0000] [info] Migrations completed successfully
+[2025-03-06 5:07:39 PM +0000] [info] Auto-migration completed
+[2025-03-06 5:07:39 PM +0000] [info] Routes registered successfully
+[2025-03-06 5:07:39 PM +0000] [info] Vapor is ready to run!
+[2025-03-06 5:07:39 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-06 5:07:44 PM +0000] [info] GET /error/errormiddlewareadvance
+[2025-03-06 5:11:47 PM +0000] [info] Middleware configured
+[2025-03-06 5:11:47 PM +0000] [info] Setting up database
+[2025-03-06 5:11:47 PM +0000] [info] Database connected successfully
+[2025-03-06 5:11:47 PM +0000] [info] Setting up migrations
+[2025-03-06 5:11:47 PM +0000] [info] Migrations completed successfully
+[2025-03-06 5:11:47 PM +0000] [info] Auto-migration completed
+[2025-03-06 5:11:47 PM +0000] [info] Routes registered successfully
+[2025-03-06 5:11:47 PM +0000] [info] Vapor is ready to run!
+[2025-03-06 5:11:47 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-06 5:11:49 PM +0000] [info] GET /error/errormiddleware
+[2025-03-06 5:11:53 PM +0000] [info] GET /error/errormiddlewareadvance
+[2025-03-06 5:11:53 PM +0000] [warning] ErrorResponse.CustomError001: Terjadi kesalahan dalam sistem. [Suggested fixes: Coba periksa kembali input data. Restart server jika perlu.]
+[2025-03-06 5:12:31 PM +0000] [info] GET /error/errormiddlewareadvance
+[2025-03-06 5:12:31 PM +0000] [warning] ErrorResponse.CustomError001: Terjadi kesalahan dalam sistem. [Suggested fixes: Coba periksa kembali input data. Restart server jika perlu.]
+[2025-03-06 5:13:42 PM +0000] [info] Middleware configured
+[2025-03-06 5:13:42 PM +0000] [info] Setting up database
+[2025-03-06 5:13:42 PM +0000] [info] Database connected successfully
+[2025-03-06 5:13:42 PM +0000] [info] Setting up migrations
+[2025-03-06 5:13:42 PM +0000] [info] Migrations completed successfully
+[2025-03-06 5:13:42 PM +0000] [info] Auto-migration completed
+[2025-03-06 5:13:42 PM +0000] [info] Routes registered successfully
+[2025-03-06 5:13:42 PM +0000] [info] Vapor is ready to run!
+[2025-03-06 5:13:42 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-06 5:13:43 PM +0000] [info] GET /error/errormiddleware
+[2025-03-06 5:13:47 PM +0000] [info] GET /error/errormiddlewareadvance
+[2025-03-06 5:14:38 PM +0000] [info] GET /error/errormiddlewareadvance
+[2025-03-06 5:15:04 PM +0000] [info] GET /error/errormiddlewareadvance

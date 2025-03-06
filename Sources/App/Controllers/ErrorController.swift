@@ -35,6 +35,10 @@ struct ErrorController: RouteCollection {
         // Error Middleware
         errorRoutes.grouped(CustomErrorMiddleware()).get("errormiddleware", use: self.errorMiddleware)
             .withMetadata("test middleware error", "Error Controller")
+        
+        // Debuggable Error (custom error)
+        errorRoutes.grouped(CustomErrorMiddleware()).get("errormiddlewareadvance", use: self.errorMiddlewareAdvance)
+            .withMetadata("test middleware error advance", "Error Controller")
     }
     
     // GET Request -> /error/throwinganerror
@@ -65,5 +69,15 @@ struct ErrorController: RouteCollection {
     @Sendable
     func errorMiddleware(req: Request) throws -> EventLoopFuture<String> {
         req.eventLoop.makeFailedFuture(Abort(.badRequest, reason: "Something went wrong"))
+    }
+    
+    // GET Request -> /error/errormiddlewareadvance
+    @Sendable
+    func errorMiddlewareAdvance(req: Request) throws -> EventLoopFuture<String> {
+        req.eventLoop.makeFailedFuture(ErrorResponse(
+            identifier: "CustomError001",
+            reason: "Terjadi kesalahan dalam sistem.",
+            suggestedFixes: ["Coba periksa kembali input data.", "Restart server jika perlu."]
+        ))
     }
 }
