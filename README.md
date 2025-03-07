@@ -177,8 +177,8 @@ This repository is created to document my journey in learning **Vapor**, a Swift
 ```bash
     Model
     
-    [ ]
-    [ ]
+    [√] Create Model ( Galaxy )
+    [ ] Migration
 ```
 ```bash
     Relations
