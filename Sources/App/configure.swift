@@ -112,6 +112,9 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(CreateUser())
     app.migrations.add(AddUniqueConstraintUsers())
     
+    // Galaxy
+    app.migrations.add(CreateGalaxy())
+    
     app.logger.info("Migrations completed successfully")
     
     // Auto migration

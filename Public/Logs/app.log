@@ -255,3 +255,31 @@
 [2025-03-06 5:13:47 PM +0000] [info] GET /error/errormiddlewareadvance
 [2025-03-06 5:14:38 PM +0000] [info] GET /error/errormiddlewareadvance
 [2025-03-06 5:15:04 PM +0000] [info] GET /error/errormiddlewareadvance
+[2025-03-08 12:13:18 PM +0000] [info] Middleware configured
+[2025-03-08 12:13:18 PM +0000] [info] Setting up database
+[2025-03-08 12:13:18 PM +0000] [info] Database connected successfully
+[2025-03-08 12:13:18 PM +0000] [info] Setting up migrations
+[2025-03-08 12:13:18 PM +0000] [info] Migrations completed successfully
+[2025-03-08 12:13:18 PM +0000] [info] Auto-migration completed
+[2025-03-08 12:13:18 PM +0000] [info] Routes registered successfully
+[2025-03-08 12:13:18 PM +0000] [info] Vapor is ready to run!
+[2025-03-08 12:13:25 PM +0000] [info] Middleware configured
+[2025-03-08 12:13:25 PM +0000] [info] Setting up database
+[2025-03-08 12:13:25 PM +0000] [info] Database connected successfully
+[2025-03-08 12:13:25 PM +0000] [info] Setting up migrations
+[2025-03-08 12:13:25 PM +0000] [info] Migrations completed successfully
+[2025-03-08 12:13:25 PM +0000] [info] Auto-migration completed
+[2025-03-08 12:13:25 PM +0000] [info] Routes registered successfully
+[2025-03-08 12:13:25 PM +0000] [info] Vapor is ready to run!
+[2025-03-08 12:13:25 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-08 1:17:24 PM +0000] [info] Middleware configured
+[2025-03-08 1:17:24 PM +0000] [info] Setting up database
+[2025-03-08 1:17:24 PM +0000] [info] Database connected successfully
+[2025-03-08 1:17:24 PM +0000] [info] Setting up migrations
+[2025-03-08 1:17:24 PM +0000] [info] Migrations completed successfully
+[2025-03-08 1:17:24 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-08 1:17:24 PM +0000] [info] [Migrator] Finished prepare
+[2025-03-08 1:17:24 PM +0000] [info] Auto-migration completed
+[2025-03-08 1:17:24 PM +0000] [info] Routes registered successfully
+[2025-03-08 1:17:24 PM +0000] [info] Vapor is ready to run!
+[2025-03-08 1:17:24 PM +0000] [notice] Server started on http://127.0.0.1:8080
