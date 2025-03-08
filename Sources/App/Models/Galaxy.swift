@@ -8,7 +8,7 @@
 import Vapor
 import Fluent
 
-final class Galaxy: Model, @unchecked Sendable {
+final class Galaxy: Model, Content, @unchecked Sendable {
     static let schema: String = "galaxies"
     
     @ID(key: .id)

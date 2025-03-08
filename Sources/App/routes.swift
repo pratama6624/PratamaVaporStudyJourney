@@ -175,6 +175,9 @@ func routes(_ app: Application) throws {
     // Route Controller Error
     try app.register(collection: ErrorController())
     
+    // Route Controller Galaxy
+    try app.register(collection: GalaxyController())
+    
     // Viewing all route
     // Terminal -> swift run App routes
     print(app.routes.all)
