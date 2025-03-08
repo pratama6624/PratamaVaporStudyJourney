@@ -179,9 +179,13 @@ This repository is created to document my journey in learning **Vapor**, a Swift
     
     [√] Create Model ( Galaxy )
     [√] Migration ( Galaxy )
-    [ ] Querying
+    [√] Querying
         [√] All
-        [ ] Create
+        [√] Create
+    [ ] Relations
+        [ ] Parent
+        [ ] Children
+        [ ] Eager Load
 ```
 ```bash
     Relations
