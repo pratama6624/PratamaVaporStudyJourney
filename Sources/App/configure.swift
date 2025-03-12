@@ -115,6 +115,12 @@ public func configure(_ app: Application) async throws {
     // Galaxy
     app.migrations.add(CreateGalaxy())
     
+    // Models -> Relations
+    app.migrations.add(CreateUserRelation())
+    app.migrations.add(CreatePostRelation())
+    // Seeder
+    app.migrations.add(SeedUserRelation())
+    
     app.logger.info("Migrations completed successfully")
     
     // Auto migration

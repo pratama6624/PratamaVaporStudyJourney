@@ -183,9 +183,11 @@ This repository is created to document my journey in learning **Vapor**, a Swift
         [√] All
         [√] Create
     [ ] Relations
-        [ ] Parent
-        [ ] Children
-        [ ] Eager Load
+        [√] Seeder
+        [√] Parent ( One to Many -> From Child )
+        [ ] Children ( One to Many -> From Parent )
+        [ ] Siblings ( Many to Many )
+        [ ] Eiger Load
 ```
 ```bash
     Relations
