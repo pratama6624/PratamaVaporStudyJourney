@@ -118,8 +118,11 @@ public func configure(_ app: Application) async throws {
     // Models -> Relations
     app.migrations.add(CreateUserRelation())
     app.migrations.add(CreatePostRelation())
+    app.migrations.add(CreateCategoryRelation())
+    app.migrations.add(CreateProductRelation())
     // Seeder
     app.migrations.add(SeedUserRelation())
+    app.migrations.add(SeedCategoryRelation())
     
     app.logger.info("Migrations completed successfully")
     

@@ -181,6 +181,8 @@ func routes(_ app: Application) throws {
     // Route Controller Relations
     try app.register(collection: UserRelationController())
     try app.register(collection: PostRelationController())
+    try app.register(collection: CategoryRelationController())
+    try app.register(collection: ProductRelationController())
     
     // Viewing all route
     // Terminal -> swift run App routes
