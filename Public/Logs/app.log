@@ -702,3 +702,36 @@
 [2025-03-13 4:47:00 PM +0000] [info] Routes registered successfully
 [2025-03-13 4:47:00 PM +0000] [info] Vapor is ready to run!
 [2025-03-13 4:47:00 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-14 3:18:36 PM +0000] [info] GET /userrelations
+[2025-03-14 3:45:57 PM +0000] [info] Middleware configured
+[2025-03-14 3:45:57 PM +0000] [info] Setting up database
+[2025-03-14 3:45:57 PM +0000] [info] Database connected successfully
+[2025-03-14 3:45:57 PM +0000] [info] Setting up migrations
+[2025-03-14 3:45:57 PM +0000] [info] Migrations completed successfully
+[2025-03-14 3:45:57 PM +0000] [info] Auto-migration completed
+[2025-03-14 3:45:57 PM +0000] [info] Routes registered successfully
+[2025-03-14 3:45:57 PM +0000] [info] Vapor is ready to run!
+[2025-03-14 3:47:18 PM +0000] [info] Middleware configured
+[2025-03-14 3:47:18 PM +0000] [info] Setting up database
+[2025-03-14 3:47:18 PM +0000] [info] Database connected successfully
+[2025-03-14 3:47:18 PM +0000] [info] Setting up migrations
+[2025-03-14 3:47:18 PM +0000] [info] Migrations completed successfully
+[2025-03-14 3:47:18 PM +0000] [info] Auto-migration completed
+[2025-03-14 3:47:18 PM +0000] [info] Routes registered successfully
+[2025-03-14 3:47:18 PM +0000] [info] Vapor is ready to run!
+[2025-03-14 3:47:32 PM +0000] [info] Middleware configured
+[2025-03-14 3:47:32 PM +0000] [info] Setting up database
+[2025-03-14 3:47:32 PM +0000] [info] Database connected successfully
+[2025-03-14 3:47:32 PM +0000] [info] Setting up migrations
+[2025-03-14 3:47:32 PM +0000] [info] Migrations completed successfully
+[2025-03-14 3:47:32 PM +0000] [info] Auto-migration completed
+[2025-03-14 3:47:32 PM +0000] [info] Routes registered successfully
+[2025-03-14 3:47:32 PM +0000] [info] Vapor is ready to run!
+[2025-03-14 3:47:32 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-14 3:48:38 PM +0000] [info] GET /categoryrelations
+[2025-03-14 3:50:18 PM +0000] [info] POST /product-relations
+[2025-03-14 3:50:40 PM +0000] [info] POST /product-relations
+[2025-03-14 3:50:52 PM +0000] [info] POST /product-relations
+[2025-03-14 3:51:16 PM +0000] [info] POST /product-relations
+[2025-03-14 3:51:43 PM +0000] [info] POST /product-relations
+[2025-03-14 3:52:09 PM +0000] [info] GET /categoryrelations
