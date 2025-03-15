@@ -186,6 +186,7 @@ This repository is created to document my journey in learning **Vapor**, a Swift
         [√] Seeder
         [√] Parent ( One to Many -> From Child )
             [√] One to Many and Many to One Relations Sample
+            [ ] One to Manu and Many to One Multiple Relations Sample
         [ ] Children ( One to Many -> From Parent )
         [ ] Siblings ( Many to Many )
         [ ] Eiger Load
