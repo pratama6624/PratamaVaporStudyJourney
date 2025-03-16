@@ -19,7 +19,7 @@ final class CategoryRelationModel: Model, Content, @unchecked Sendable {
     var name: String
     
     @Children(for: \.$category)
-    var products: [ProductModelRelations]
+    var products: [ProductRelationModel]
     
     init() { }
     

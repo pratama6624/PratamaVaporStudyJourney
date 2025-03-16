@@ -25,21 +25,21 @@ struct CategoryRelationController: RouteCollection, @unchecked Sendable {
     }
     
     @Sendable
-    func index(req: Request) async throws -> [CategoryModelRelations] {
-        try await CategoryModelRelations.query(on: req.db).with(\.$products).all()
+    func index(req: Request) async throws -> [CategoryRelationModel] {
+        try await CategoryRelationModel.query(on: req.db).with(\.$products).all()
     }
     
     @Sendable
-    func create(req: Request) async throws -> CategoryModelRelations {
-        let category = try req.content.decode(CategoryModelRelations.self)
+    func create(req: Request) async throws -> CategoryRelationModel {
+        let category = try req.content.decode(CategoryRelationModel.self)
         
         try await category.save(on: req.db)
         return category
     }
     
     @Sendable
-    func show(req: Request) async throws -> CategoryModelRelations {
-        guard let category = try await CategoryModelRelations.find(req.parameters.get("categoryID"), on: req.db) else {
+    func show(req: Request) async throws -> CategoryRelationModel {
+        guard let category = try await CategoryRelationModel.find(req.parameters.get("categoryID"), on: req.db) else {
             throw Abort(.notFound, reason: "Wrong id")
         }
         

@@ -739,3 +739,12 @@
 [2025-03-14 3:58:53 PM +0000] [warning] PSQLError(code: server, serverInfo: [sqlState: 23502, detail: Failing row contains (c8f7faa0-7c32-4061-8113-f35bab77ef09, Macbook Pro M3, 30000000, null)., file: execMain.c, line: 2003, message: null value in column "category_id" of relation "product_relations" violates not-null constraint, routine: ExecConstraints, localizedSeverity: ERROR, severity: ERROR, columnName: category_id, schemaName: public, tableName: product_relations], triggeredFromRequestInFile: PostgresKit/PostgresDatabase+SQL.swift, line: 57, query: PostgresQuery(sql: INSERT INTO "product_relations" ("id", "name", "price", "category_id") VALUES ($1, $2, $3, NULL) RETURNING "id", binds: [(****; UUID; format: binary), (****; TEXT; format: binary), (****; DOUBLE PRECISION; format: binary)]))
 [2025-03-14 3:59:20 PM +0000] [info] POST /product-relations
 [2025-03-14 3:59:20 PM +0000] [warning] Abort.404: Category not found
+[2025-03-16 2:51:42 AM +0000] [info] GET /product-relations
+[2025-03-16 2:52:08 AM +0000] [info] POST /categoryrelations
+[2025-03-16 2:52:15 AM +0000] [info] GET /categoryrelations
+[2025-03-16 2:52:27 AM +0000] [info] GET /postrelation
+[2025-03-16 2:52:34 AM +0000] [info] GET /product-relations
+[2025-03-16 2:52:42 AM +0000] [info] GET /categoryrelations
+[2025-03-16 2:52:59 AM +0000] [info] POST /product-relations
+[2025-03-16 2:52:59 AM +0000] [warning] Abort.404: Category not found
+[2025-03-16 3:06:13 AM +0000] [info] GET /categoryrelations

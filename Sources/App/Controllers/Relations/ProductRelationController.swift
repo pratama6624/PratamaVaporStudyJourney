@@ -25,8 +25,8 @@ struct ProductRelationController: RouteCollection, @unchecked Sendable {
     }
     
     @Sendable
-    func index(req: Request) async throws -> [ProductModelRelations] {
-        try await ProductModelRelations.query(on: req.db).with(\.$category).all()
+    func index(req: Request) async throws -> [ProductRelationModel] {
+        try await ProductRelationModel.query(on: req.db).with(\.$category).all()
     }
     
     @Sendable
@@ -34,15 +34,15 @@ struct ProductRelationController: RouteCollection, @unchecked Sendable {
         let data = try req.content.decode(ProductCreateRequest.self)
         
         if let categoryID = data.categoryID {
-            guard let _ = try await CategoryModelRelations.find(categoryID, on: req.db) else {
+            guard let _ = try await CategoryRelationModel.find(categoryID, on: req.db) else {
                 throw Abort(.notFound, reason: "Category not found")
             }
         }
         
-        let product = ProductModelRelations(name: data.name, price: data.price, categoryID: data.categoryID)
+        let product = ProductRelationModel(name: data.name, price: data.price, categoryID: data.categoryID)
         try await product.save(on: req.db)
         
-        let savedProduct = try await ProductModelRelations.query(on: req.db)
+        let savedProduct = try await ProductRelationModel.query(on: req.db)
             .with(\.$category)
             .filter(\.$id == product.id!)
             .first()
@@ -55,8 +55,8 @@ struct ProductRelationController: RouteCollection, @unchecked Sendable {
     }
     
     @Sendable
-    func show(req: Request) async throws -> ProductModelRelations {
-        guard let product = try await ProductModelRelations.find(req.parameters.get("productID"), on: req.db) else {
+    func show(req: Request) async throws -> ProductRelationModel {
+        guard let product = try await ProductRelationModel.find(req.parameters.get("productID"), on: req.db) else {
             throw Abort(.notFound, reason: "Wrong id")
         }
         

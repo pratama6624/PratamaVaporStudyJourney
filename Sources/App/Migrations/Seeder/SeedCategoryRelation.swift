@@ -12,8 +12,8 @@ import Fluent
 struct SeedCategoryRelation: AsyncMigration {
     func prepare(on database: any Database) async throws {
         let categories = [
-            CategoryModelRelations(name: "Electronic"),
-            CategoryModelRelations(name: "Fashion")
+            CategoryRelationModel(name: "Electronic"),
+            CategoryRelationModel(name: "Fashion")
         ]
         
         for category in categories {
@@ -22,6 +22,6 @@ struct SeedCategoryRelation: AsyncMigration {
     }
     
     func revert(on database: any Database) async throws {
-        try await CategoryModelRelations.query(on: database).delete()
+        try await CategoryRelationModel.query(on: database).delete()
     }
 }
