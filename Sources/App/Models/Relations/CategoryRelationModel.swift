@@ -9,7 +9,7 @@ import Vapor
 import Fluent
 
 // One to Many
-final class CategoryModelRelations: Model, Content, @unchecked Sendable {
+final class CategoryRelationModel: Model, Content, @unchecked Sendable {
     static let schema: String = "categories_relations"
     
     @ID(key: .id)

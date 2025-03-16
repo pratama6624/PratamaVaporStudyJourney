@@ -9,7 +9,7 @@ import Vapor
 import Fluent
 
 // Many to One
-final class ProductModelRelations: Model, Content, @unchecked Sendable {
+final class ProductRelationModel: Model, Content, @unchecked Sendable {
     static let schema: String = "product_relations"
     
     @ID(key: .id)
@@ -22,7 +22,7 @@ final class ProductModelRelations: Model, Content, @unchecked Sendable {
     var price: Double
     
     @OptionalParent(key: "category_id")
-    var category: CategoryModelRelations?
+    var category: CategoryRelationModel?
     
     init() { }
     
