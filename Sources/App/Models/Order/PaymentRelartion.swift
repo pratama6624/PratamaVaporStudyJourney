@@ -9,7 +9,7 @@ import Vapor
 import Fluent
 
 final class PaymentRelation: Model, Content, @unchecked Sendable {
-    static let schema: String = "payment_relations"
+    static let schema: String = "payment_multi_relations"
     
     @ID(key: .id)
     var id: UUID?

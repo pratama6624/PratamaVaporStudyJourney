@@ -748,3 +748,55 @@
 [2025-03-16 2:52:59 AM +0000] [info] POST /product-relations
 [2025-03-16 2:52:59 AM +0000] [warning] Abort.404: Category not found
 [2025-03-16 3:06:13 AM +0000] [info] GET /categoryrelations
+[2025-03-17 4:49:22 PM +0000] [info] Middleware configured
+[2025-03-17 4:49:22 PM +0000] [info] Setting up database
+[2025-03-17 4:49:22 PM +0000] [info] Database connected successfully
+[2025-03-17 4:49:22 PM +0000] [info] Setting up migrations
+[2025-03-17 4:49:22 PM +0000] [info] Migrations completed successfully
+[2025-03-17 4:49:22 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:49:22 PM +0000] [info] [Migrator] Finished prepare
+[2025-03-17 4:49:22 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:49:22 PM +0000] [error] [Migrator] Failed prepare
+[2025-03-17 4:49:22 PM +0000] [warning] PSQLError(code: server, serverInfo: [sqlState: 42P01, file: namespace.c, line: 434, message: relation "payment_multi_relations" does not exist, routine: RangeVarGetRelidExtended, localizedSeverity: ERROR, severity: ERROR], triggeredFromRequestInFile: PostgresKit/PostgresDatabase+SQL.swift, line: 57, query: PostgresQuery(sql: CREATE TABLE "order_multi_relations" ("id" UUID PRIMARY KEY, "user_id" UUID NOT NULL REFERENCES "user_multi_relations" ("id") ON DELETE CASCADE ON UPDATE NO ACTION, "payment_id" UUID REFERENCES "payment_multi_relations" ("id") ON DELETE SET NULL ON UPDATE NO ACTION, "shipping_id" UUID REFERENCES "payment_multi_relations" ("id") ON DELETE SET NULL ON UPDATE NO ACTION), binds: []))
+[2025-03-17 4:51:07 PM +0000] [info] Middleware configured
+[2025-03-17 4:51:07 PM +0000] [info] Setting up database
+[2025-03-17 4:51:07 PM +0000] [info] Database connected successfully
+[2025-03-17 4:51:07 PM +0000] [info] Setting up migrations
+[2025-03-17 4:51:07 PM +0000] [info] Migrations completed successfully
+[2025-03-17 4:51:07 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:51:07 PM +0000] [error] [Migrator] Failed prepare
+[2025-03-17 4:51:07 PM +0000] [warning] PSQLError(code: server, serverInfo: [sqlState: 42P01, file: namespace.c, line: 434, message: relation "payment_multi_relations" does not exist, routine: RangeVarGetRelidExtended, localizedSeverity: ERROR, severity: ERROR], triggeredFromRequestInFile: PostgresKit/PostgresDatabase+SQL.swift, line: 57, query: PostgresQuery(sql: CREATE TABLE "order_multi_relations" ("id" UUID PRIMARY KEY, "user_id" UUID NOT NULL REFERENCES "user_multi_relations" ("id") ON DELETE CASCADE ON UPDATE NO ACTION, "payment_id" UUID REFERENCES "payment_multi_relations" ("id") ON DELETE SET NULL ON UPDATE NO ACTION, "shipping_id" UUID REFERENCES "payment_multi_relations" ("id") ON DELETE SET NULL ON UPDATE NO ACTION), binds: []))
+[2025-03-17 4:51:13 PM +0000] [info] Middleware configured
+[2025-03-17 4:51:13 PM +0000] [info] Setting up database
+[2025-03-17 4:51:13 PM +0000] [info] Database connected successfully
+[2025-03-17 4:51:13 PM +0000] [info] Setting up migrations
+[2025-03-17 4:51:13 PM +0000] [info] Migrations completed successfully
+[2025-03-17 4:51:14 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:51:14 PM +0000] [error] [Migrator] Failed prepare
+[2025-03-17 4:51:14 PM +0000] [warning] PSQLError(code: server, serverInfo: [sqlState: 42P01, file: namespace.c, line: 434, message: relation "payment_multi_relations" does not exist, routine: RangeVarGetRelidExtended, localizedSeverity: ERROR, severity: ERROR], triggeredFromRequestInFile: PostgresKit/PostgresDatabase+SQL.swift, line: 57, query: PostgresQuery(sql: CREATE TABLE "order_multi_relations" ("id" UUID PRIMARY KEY, "user_id" UUID NOT NULL REFERENCES "user_multi_relations" ("id") ON DELETE CASCADE ON UPDATE NO ACTION, "payment_id" UUID REFERENCES "payment_multi_relations" ("id") ON DELETE SET NULL ON UPDATE NO ACTION, "shipping_id" UUID REFERENCES "payment_multi_relations" ("id") ON DELETE SET NULL ON UPDATE NO ACTION), binds: []))
+[2025-03-17 4:51:23 PM +0000] [info] Middleware configured
+[2025-03-17 4:51:24 PM +0000] [info] Setting up database
+[2025-03-17 4:51:24 PM +0000] [info] Database connected successfully
+[2025-03-17 4:51:24 PM +0000] [info] Setting up migrations
+[2025-03-17 4:51:24 PM +0000] [info] Migrations completed successfully
+[2025-03-17 4:51:24 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:51:24 PM +0000] [error] [Migrator] Failed prepare
+[2025-03-17 4:51:24 PM +0000] [warning] PSQLError(code: server, serverInfo: [sqlState: 42P01, file: namespace.c, line: 434, message: relation "payment_multi_relations" does not exist, routine: RangeVarGetRelidExtended, localizedSeverity: ERROR, severity: ERROR], triggeredFromRequestInFile: PostgresKit/PostgresDatabase+SQL.swift, line: 57, query: PostgresQuery(sql: CREATE TABLE "order_multi_relations" ("id" UUID PRIMARY KEY, "user_id" UUID NOT NULL REFERENCES "user_multi_relations" ("id") ON DELETE CASCADE ON UPDATE NO ACTION, "payment_id" UUID REFERENCES "payment_multi_relations" ("id") ON DELETE SET NULL ON UPDATE NO ACTION, "shipping_id" UUID REFERENCES "payment_multi_relations" ("id") ON DELETE SET NULL ON UPDATE NO ACTION), binds: []))
+[2025-03-17 4:54:56 PM +0000] [info] Middleware configured
+[2025-03-17 4:54:56 PM +0000] [info] Setting up database
+[2025-03-17 4:54:56 PM +0000] [info] Database connected successfully
+[2025-03-17 4:54:56 PM +0000] [info] Setting up migrations
+[2025-03-17 4:54:56 PM +0000] [info] Migrations completed successfully
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Finished prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Finished prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Finished prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Finished prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-17 4:54:56 PM +0000] [info] [Migrator] Finished prepare
+[2025-03-17 4:54:56 PM +0000] [info] Auto-migration completed
+[2025-03-17 4:54:56 PM +0000] [info] Routes registered successfully
+[2025-03-17 4:54:56 PM +0000] [info] Vapor is ready to run!

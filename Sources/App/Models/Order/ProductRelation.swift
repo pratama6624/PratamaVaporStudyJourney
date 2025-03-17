@@ -9,7 +9,7 @@ import Vapor
 import Fluent
 
 final class ProductRelation: Model, Content, @unchecked Sendable {
-    static let schema: String = "product_relations"
+    static let schema: String = "product_multi_relations"
     
     @ID(key: .id)
     var id: UUID?

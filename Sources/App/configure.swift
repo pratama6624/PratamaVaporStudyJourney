@@ -124,6 +124,14 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(SeedUserRelation())
     app.migrations.add(SeedCategoryRelation())
     
+    // Multi Relation
+    app.migrations.add(CreateUserMultiRelation())
+    app.migrations.add(CreatePaymentMultiRelation())
+    app.migrations.add(CreateShippingMultiRelation())
+    app.migrations.add(CreateProductMultiRelation())
+    app.migrations.add(CreateOrderMultiRelation())
+    app.migrations.add(CreateOrderProductMultiRelation())
+    
     app.logger.info("Migrations completed successfully")
     
     // Auto migration
