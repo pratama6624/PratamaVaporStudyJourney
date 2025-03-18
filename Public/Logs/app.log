@@ -873,3 +873,38 @@
 [2025-03-18 4:11:55 PM +0000] [info] Routes registered successfully
 [2025-03-18 4:11:55 PM +0000] [info] Vapor is ready to run!
 [2025-03-18 4:12:42 PM +0000] [info] GET /user_multi_relations/83D569CB-0870-40B1-88ED-6B6B1E1AE2B9
+[2025-03-18 4:47:39 PM +0000] [info] Middleware configured
+[2025-03-18 4:47:39 PM +0000] [info] Setting up database
+[2025-03-18 4:47:39 PM +0000] [info] Database connected successfully
+[2025-03-18 4:47:39 PM +0000] [info] Setting up migrations
+[2025-03-18 4:47:39 PM +0000] [info] Migrations completed successfully
+[2025-03-18 4:47:39 PM +0000] [info] Auto-migration completed
+[2025-03-18 4:47:39 PM +0000] [info] Routes registered successfully
+[2025-03-18 4:47:39 PM +0000] [info] Vapor is ready to run!
+[2025-03-18 4:47:39 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-18 4:48:32 PM +0000] [info] GET /payment_multi_relations
+[2025-03-18 4:49:26 PM +0000] [info] Middleware configured
+[2025-03-18 4:49:26 PM +0000] [info] Setting up database
+[2025-03-18 4:49:26 PM +0000] [info] Database connected successfully
+[2025-03-18 4:49:26 PM +0000] [info] Setting up migrations
+[2025-03-18 4:49:26 PM +0000] [info] Migrations completed successfully
+[2025-03-18 4:49:27 PM +0000] [info] Auto-migration completed
+[2025-03-18 4:49:27 PM +0000] [info] Routes registered successfully
+[2025-03-18 4:49:27 PM +0000] [info] Vapor is ready to run!
+[2025-03-18 4:49:27 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-18 4:49:31 PM +0000] [info] GET /payment_multi_relations
+[2025-03-18 4:50:58 PM +0000] [info] GET /payment_multi_relations
+[2025-03-18 4:51:08 PM +0000] [info] GET /payment_multi_relations
+[2025-03-18 4:51:18 PM +0000] [info] POST /payment_multi_relations
+[2025-03-18 4:51:23 PM +0000] [info] GET /payment_multi_relations
+[2025-03-18 4:54:04 PM +0000] [info] Middleware configured
+[2025-03-18 4:54:04 PM +0000] [info] Setting up database
+[2025-03-18 4:54:04 PM +0000] [info] Database connected successfully
+[2025-03-18 4:54:04 PM +0000] [info] Setting up migrations
+[2025-03-18 4:54:04 PM +0000] [info] Migrations completed successfully
+[2025-03-18 4:54:04 PM +0000] [info] Auto-migration completed
+[2025-03-18 4:54:04 PM +0000] [info] Routes registered successfully
+[2025-03-18 4:54:04 PM +0000] [info] Vapor is ready to run!
+[2025-03-18 4:54:04 PM +0000] [notice] Server started on http://127.0.0.1:8080
+[2025-03-18 4:54:10 PM +0000] [info] GET /payment_multi_relations
+[2025-03-18 4:58:04 PM +0000] [info] GET /payment_multi_relations
