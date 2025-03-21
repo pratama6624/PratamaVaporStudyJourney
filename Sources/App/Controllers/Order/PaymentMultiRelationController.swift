@@ -26,7 +26,7 @@ struct PaymentMultiRelationController: RouteCollection, @unchecked Sendable {
     
     @Sendable
     func index(req: Request) async throws -> [PaymentRelation] {
-        try await PaymentRelation.query(on: req.db).all()
+        try await PaymentRelation.query(on: req.db).with(\.$orders).all()
     }
     
     @Sendable

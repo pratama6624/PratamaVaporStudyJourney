@@ -188,6 +188,7 @@ func routes(_ app: Application) throws {
     try app.register(collection: UserMultiRelationController())
     try app.register(collection: PaymentMultiRelationController())
     try app.register(collection: ProductMultiRelationController())
+    try app.register(collection: ShippingMultiRelationController())
     
     // Viewing all route
     // Terminal -> swift run App routes

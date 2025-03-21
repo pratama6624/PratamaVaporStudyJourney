@@ -12,7 +12,7 @@ import Fluent
 /*
     Order -> User
         Many -> One ( Banyak order bisa dimiliki oleh 1 user )
-        One <- Many ( 1 user bisa memiliki banyak order )
+        Many <- One ( 1 user bisa memiliki banyak order )
         Parent on Many Side
         Children on One Side
  
