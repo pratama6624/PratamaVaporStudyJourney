@@ -17,14 +17,22 @@ final class ShippingRelation: Model, Content, @unchecked Sendable {
     @Field(key: "carrier")
     var carrier: String
     
+    @Field(key: "cost")
+    var cost: Double
+    
+    @Field(key: "address")
+    var address: String
+    
     // One to Many
     @Children(for: \.$shipping)
     var orders: [OrderRelation]
     
     init() { }
     
-    init(id: UUID? = nil, carrier: String) {
+    init(id: UUID? = nil, carrier: String, cost: Double, address: String) {
         self.id = id
         self.carrier = carrier
+        self.cost = cost
+        self.address = address
     }
 }
