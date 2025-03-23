@@ -17,13 +17,17 @@ final class ProductRelation: Model, Content, @unchecked Sendable {
     @Field(key: "name")
     var name: String
     
+    @Field(key: "price")
+    var price: Double
+    
     @Siblings(through: OrderProductPivot.self, from: \.$product, to: \.$order)
     var orders: [OrderRelation]
     
     init() { }
     
-    init(id: UUID? = nil, name: String) {
+    init(id: UUID? = nil, name: String, price: Double) {
         self.id = id
         self.name = name
+        self.price = price
     }
 }
