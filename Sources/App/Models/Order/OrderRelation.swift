@@ -74,5 +74,7 @@ final class OrderRelation: Model, Content, @unchecked Sendable {
     }
 }
 
-// user √
-// 
+// User √
+// Shipping √
+// Product √
+// Order Product Pivot √
