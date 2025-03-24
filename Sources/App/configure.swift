@@ -135,6 +135,7 @@ public func configure(_ app: Application) async throws {
     app.migrations.add(UpdateShippingMultiRelation())
     app.migrations.add(UpdateProductMultiRelation())
     app.migrations.add(UpdateOrderProductMultiRelation())
+    app.migrations.add(UpdatePaymentMultiRelation())
     
     app.logger.info("Migrations completed successfully")
     

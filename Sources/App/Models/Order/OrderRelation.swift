@@ -78,3 +78,5 @@ final class OrderRelation: Model, Content, @unchecked Sendable {
 // Shipping √
 // Product √
 // Order Product Pivot √
+// Order -> Periksa date order
+// Payment -> Periksa id orders dan date payment √
