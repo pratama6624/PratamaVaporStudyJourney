@@ -52,13 +52,16 @@ final class OrderRelation: Model, Content, @unchecked Sendable {
     @Parent(key: "user_id")
     var user: UserRelation
     
-    // One to One
-    @OptionalParent(key: "payment_id")
-    var payment: PaymentRelation?
-    
     // Many to One
     @OptionalParent(key: "shipping_id")
     var shipping: ShippingRelation?
+    
+    @Timestamp(key: "date", on: .create)
+    var date: Date?
+    
+    // One to One
+    @OptionalChild(for: \.$orders)
+    var payment: PaymentRelation?
     
     // Many to Many
     @Siblings(through: OrderProductPivot.self, from: \.$order, to: \.$product)
@@ -66,10 +69,9 @@ final class OrderRelation: Model, Content, @unchecked Sendable {
     
     init() { }
     
-    init(id: UUID? = nil, userID: UUID, paymentID: UUID? = nil, shippingID: UUID? = nil) {
+    init(id: UUID? = nil, userID: UUID, shippingID: UUID? = nil) {
         self.id = id
         self.$user.id = userID
-        self.$payment.id = paymentID
         self.$shipping.id = shippingID
     }
 }
@@ -78,5 +80,7 @@ final class OrderRelation: Model, Content, @unchecked Sendable {
 // Shipping √
 // Product √
 // Order Product Pivot √
-// Order -> Periksa date order
-// Payment -> Periksa id orders dan date payment √
+// Order √
+// Payment √
+
+// Tinggal buat bagian migration untuk Order
