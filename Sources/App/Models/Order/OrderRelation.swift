@@ -83,4 +83,5 @@ final class OrderRelation: Model, Content, @unchecked Sendable {
 // Order √
 // Payment √
 
-// Tinggal buat bagian migration untuk Order
+// Ingat besok ya bree
+// Step 1 : Tinggal buat bagian migration untuk Order, hilangkan payment id dan tambahkan date

@@ -1069,3 +1069,15 @@
 [2025-03-24 5:25:51 PM +0000] [info] Vapor is ready to run!
 [2025-03-24 5:25:51 PM +0000] [notice] Server started on http://127.0.0.1:8080
 [2025-03-24 5:25:51 PM +0000] [info] GET /payment_multi_relations
+[2025-03-25 4:43:16 PM +0000] [info] GET /payment_multi_relations
+[2025-03-25 4:52:17 PM +0000] [info] Middleware configured
+[2025-03-25 4:52:17 PM +0000] [info] Setting up database
+[2025-03-25 4:52:17 PM +0000] [info] Database connected successfully
+[2025-03-25 4:52:17 PM +0000] [info] Setting up migrations
+[2025-03-25 4:52:17 PM +0000] [info] Migrations completed successfully
+[2025-03-25 4:52:18 PM +0000] [info] [Migrator] Starting prepare
+[2025-03-25 4:52:18 PM +0000] [info] [Migrator] Finished prepare
+[2025-03-25 4:52:18 PM +0000] [info] Auto-migration completed
+[2025-03-25 4:52:18 PM +0000] [info] Routes registered successfully
+[2025-03-25 4:52:18 PM +0000] [info] Vapor is ready to run!
+[2025-03-25 4:52:18 PM +0000] [notice] Server started on http://127.0.0.1:8080
