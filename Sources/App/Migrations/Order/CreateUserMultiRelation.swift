@@ -21,3 +21,5 @@ struct CreateUserMultiRelation: AsyncMigration {
         try await database.schema("user_multi_relations").delete()
     }
 }
+
+// DONE
