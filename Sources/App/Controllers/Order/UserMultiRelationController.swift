@@ -21,6 +21,9 @@ struct UserMultiRelationController: RouteCollection, @unchecked Sendable {
         users.delete(use: self.deleteUser)
             .withMetadata("Delete user", "User Multi Relations Controller")
         
+        users.put(use: self.updateUser)
+            .withMetadata("Update user", "User Multi Relations Controller")
+        
         users.group(":userID") { user in
             user.get(use: self.show)
                 .withMetadata("Show user by id", "User Multi Relations Controller")
@@ -138,6 +141,67 @@ struct UserMultiRelationController: RouteCollection, @unchecked Sendable {
             "deleted": deleted,
             "errors": errors
         ])
+        return response
+    }
+    
+    // Data Update -> PUT BY ID SINGLE & MULTIPLE
+    @Sendable
+    func updateUser(req: Request) async throws -> Response {
+        var payloads: [[String: String]] = []
+        
+        // 1 Object
+        if let single = try? req.content.decode([String: String].self) {
+            payloads = [single]
+        }
+        // Multiple object
+        else if let multiple = try? req.content.decode([[String: String]].self) {
+            payloads = multiple
+        } else {
+            let res = Response(status: .badRequest)
+            try res.content.encode([
+                "updated": [],
+                "errors": [["error": "Invalid JSON format, use object or aary of object with at least 'id"]]
+            ])
+            return res
+        }
+        
+        var updated: [[String: String]] = []
+        var errors: [[String: String]] = []
+        
+        for payload in payloads {
+            guard let idStr = payload["id"], let uuid = UUID(uuidString: idStr) else {
+                errors.append(["id": payload["id"] ?? "unknown", "error": "Invalid or missing ID"])
+                continue
+            }
+            
+            guard let user = try await UserRelation.find(uuid, on: req.db) else {
+                errors.append(["id": idStr, "error": "User not found"])
+                continue
+            }
+            
+            // Update
+            if let name = payload["name"] {
+                user.name = name
+            }
+            if let email = payload["email"] {
+                user.email = email
+            }
+            
+            do {
+                try await user.save(on: req.db)
+                updated.append(["id": idStr])
+            } catch {
+                errors.append(["id": idStr, "error": "Failed to update: \(error.localizedDescription)"])
+            }
+        }
+        
+        let status: HTTPResponseStatus = updated.isEmpty ? .notFound : (errors.isEmpty ? .ok : .multiStatus)
+        let response = Response(status: status)
+        try response.content.encode([
+            "updated": updated,
+            "errors": errors
+        ])
+        
         return response
     }
 }
