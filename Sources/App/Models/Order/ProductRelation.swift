@@ -8,6 +8,9 @@
 import Vapor
 import Fluent
 
+// Batasan studi kasus
+// Field hanya 3 saja (id, name, & price) No need anything else
+
 final class ProductRelation: Model, Content, @unchecked Sendable {
     static let schema: String = "product_multi_relations"
     
@@ -20,6 +23,8 @@ final class ProductRelation: Model, Content, @unchecked Sendable {
     @Field(key: "price")
     var price: Double
     
+    // Many to Many
+    // Note : Ditampilkan di sisi produk jika ada get (by id single or get all)
     @Siblings(through: OrderProductPivot.self, from: \.$product, to: \.$order)
     var orders: [OrderRelation]
     
@@ -31,3 +36,5 @@ final class ProductRelation: Model, Content, @unchecked Sendable {
         self.price = price
     }
 }
+
+// DONE

@@ -24,9 +24,10 @@ struct ProductMultiRelationController: RouteCollection, @unchecked Sendable {
         }
     }
     
+    // Data Read -> GET ALL
     @Sendable
     func index(req: Request) async throws -> [ProductRelation] {
-        try await ProductRelation.query(on: req.db).all()
+        try await ProductRelation.query(on: req.db).with(\.$orders).all()
     }
     
     @Sendable
@@ -37,10 +38,18 @@ struct ProductMultiRelationController: RouteCollection, @unchecked Sendable {
         return product
     }
     
+    // Data Read -> GET BY ID
     @Sendable
     func show(req: Request) async throws -> ProductRelation {
-        guard let product = try await ProductRelation.find(req.parameters.get("productID"), on: req.db) else {
-            throw Abort(.notFound, reason: "Wrong id")
+        guard let productID = req.parameters.get("productID", as: UUID.self) else {
+            throw Abort(.badRequest, reason: "Invalid or missing product ID")
+        }
+        
+        guard let product = try await ProductRelation.query(on: req.db)
+            .with(\.$orders)
+            .filter(\.$id == productID)
+            .first() else {
+            throw Abort(.notFound, reason: "Product with the given ID not found")
         }
         
         return product
